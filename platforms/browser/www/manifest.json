@@ -1,0 +1,17 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Shape Of Music",
+  "short_name": "Shape Of Music",
+  "version": "com.Robles.project",
+  "description": "Android Game focused on Shapes and Do-Re-Mi",
+  "author": "Kolihn Camille P. Robles",
+  "icons": [
+    {
+      "src": "icon.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    }
+  ],
+  "start_url": "index.html"
+}

@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shape of Music</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
+	<script src="../jQuery.js"></script>
+	<script src="../jqui/jquery-ui.js"></script>
+	<script src="../jqm.js"></script>
+	<script src="script.js"></script>
+	<link rel="stylesheet" type="text/css" href="../jqm.css">
+	
+<style>
+
+@font-face {
+font-family: 'WickedMouse';
+src: url('../fonts/Wicked Mouse Demo.otf') format("opentype");
+}
+
+*
+{
+	font-family: "WickedMouse" !important;
+}
+
+th {
+    border-bottom: 1px solid #d6d6d6;
+}
+tr
+{
+	border-bottom: 1px solid #d6d6d6;
+}
+
+tr:nth-child(even) {
+    background: #e9e9e9;
+}
+.trans
+{
+	background:none !important;
+}
+
+.disabled
+{
+	pointer-events: none !important; 
+
+}
+
+.noevent
+{
+	pointer-events: none !important; 
+
+}
+
+.locked
+{
+	pointer-events: none;
+	background-color: gray !important;
+	color: black !important;
+}
+.noborder
+{
+	border: none !important;
+}
+.center
+{
+	text-align: center !important;
+}
+.bold
+{
+	font-weight: bold !important;
+}
+
+
+.levels
+{
+	width: 45px;
+	height: 45px;
+	
+	margin: 20px 20px !important;
+	border: none !important;
+}
+.level1 , .level2, .level3 , .level4 , .level5 , .level6
+{
+	background-color: rgb(230,249,255) !important;
+}
+.level7 , .level8, .level9, .level10
+{
+	background-color: rgb(188,245,252) !important;
+}
+
+.level1
+{
+	background-image:url(../level_images/num1.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level2
+{
+	background-image:url(../level_images/num2.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level3
+{
+	background-image:url(../level_images/num3.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level4
+{
+	background-image:url(../level_images/num4.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level5
+{
+	background-image:url(../level_images/num5.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level6
+{
+	background-image:url(../level_images/num6.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level7
+{
+	background-image:url(../level_images/num7.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level8
+{
+	background-image:url(../level_images/num8.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level9
+{
+	background-image:url(../level_images/num9.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level10
+{
+	background-image:url(../level_images/num10.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.level-lock
+{
+	pointer-events: none;
+	background-image:url(../level_images/level_lock.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	
+	
+}
+
+
+
+#menu{
+
+	background: url("../bgnew.png") no-repeat fixed center/cover;
+
+}
+
+
+#nxt
+	{
+	width: 200px;
+	height: 50px;
+		
+}
+
+
+.shapeStyle
+{
+	width: 35px;
+	height: 35px;
+	background: no-repeat center;
+	background-size: contain;
+	border: none !important;
+	margin: 0px 30px !important;	
+	background-color: rgba(0,0,0,0) !important;
+		
+
+}
+
+.shapeStyle8shapes
+{
+	width: 35px;
+	height: 35px;
+	background: no-repeat center;
+	background-size: contain;
+	border: none !important;
+	margin: 0px 10px !important;			
+	background-color: rgba(0,0,0,0) !important;
+
+}
+
+
+.q_img
+{
+	background-image: url("../question_img.png");
+}
+
+.playbtn
+{
+	width: 25px;
+	height: 25px;
+	background-image: url('../playbtn.png') !important;
+	background: no-repeat center;
+	background-size: contain;
+	border: none !important;
+	margin: 30px 30px !important;
+}
+
+.checkbtn
+{
+	width: 25px;
+	height: 25px;
+	background-image: url('../checkbtn.png') !important;
+	background: no-repeat center;
+	background-size: contain;
+	border: none !important;
+	margin: 30px 30px !important;
+
+}
+
+
+#row_lvl_1_, #row_lvl_2_, #row_lvl_3_, #row_lvl_4_, #row_lvl_5_, #row_lvl_6_, #row_lvl_7_, #row_lvl_8_, #row_lvl_9_, #row_lvl_10_
+{
+	background: url("../lamb bg.png") no-repeat fixed center/cover;
+} 
+
+
+#p_Ldo, #p_re, #p_mi, #p_fa, #p_sol, #p_la, #p_si, #p_Hdo
+{
+	background-color: #b0f0fa;
+}
+
+
+#p_Ldo
+{
+	background-image: url(../shapes/circle.png);
+
+}
+#p_re
+{
+	background-image: url(../shapes/diamond.png);
+}
+#p_mi
+{
+	background-image: url(../shapes/square.png);
+}
+#p_fa
+{
+	background-image: url(../shapes/heart.png);
+}
+#p_sol
+{
+	background-image: url(../shapes/oblong.png);
+}
+#p_la
+{
+	background-image: url(../shapes/rectangle.png);
+}
+#p_si
+{
+	background-image: url(../shapes/star.png);
+}
+#p_Hdo
+{
+	background-image: url(../shapes/triangle.png);
+}
+
+#play
+{
+	background-image: url('../start.png');
+	border-radius: 25px !important;
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 260px !important;
+	height: 13px !important;
+	margin: 5px !important;
+
+}
+#menu_practice
+{
+	background-image: url('../practice.png');
+	border-radius: 25px !important;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 260px !important;
+	height: 13px !important;
+	margin: 5px !important;	
+
+}
+#menu_tut
+{
+	background-image: url('../tutorial.png');
+	border-radius: 25px !important;
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 260px !important;
+	height: 13px !important;
+	margin: 5px !important;
+}
+#menu_exit
+{
+	background-image: url('../exit.png');
+	border-radius: 25px !important;
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 260px !important;
+	height: 13px !important;
+	margin: 5px !important;
+}
+
+.rounded
+{
+	border-radius: 25px !important;
+}
+
+
+
+
+.pagination {
+  display: inline-block;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  margin-left: -150.5px;
+
+  
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  margin: 0 4px;
+
+}
+
+.pagination a.active {
+  background-color: rgb(14,115,143);
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+.tut_overlay
+{
+	background: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 4999;	
+}
+
+.tut_instruction
+{	
+	
+	position: absolute;
+	left: 50%;
+	margin-left: -226.5px;
+	z-index: 5000;
+	color: black;
+	border: 2px solid black;
+	border-radius: 50px;
+	background-color: white;
+	padding: 5px;
+
+}
+
+.yellowbg
+{
+	background-image: url("../shapes/bg1.png");
+
+}
+
+.redbg
+{
+	background-image: url("../shapes/bg2.png");
+
+}
+
+.brad20px
+{
+	border-radius: 20px !important;
+}
+
+.pinkbg
+{
+	background-color: rgb(255,128,128) !important;
+}
+
+.greenbg
+{
+	background-color: rgb(56,222,106) !important;
+}
+
+.youranswer
+{
+	background-color: rgb(255,28,33);
+	width: 180px;
+	border: 2px solid black;
+	position: relative;
+	left: 50%;
+	margin-left: -90px;
+}
+
+.iswrong
+{	
+	background-color: rgb(255,28,33);
+	width: 180px;
+	border: 2px solid black;
+	position: relative;
+	left: 50%;
+	margin-left: -90px;
+}
+
+#sound-on-off
+{
+	background-image: url('../shapes/soundon.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	border: 1px solid black;
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: 50px;
+	margin:5px;
+}
+
+#end_page
+{
+	background-image: url('../shapes/end-page-bg.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+
+}
+
+#end_page_proceed
+{
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	margin-left: -59px;	
+}
+
+.youfinish
+{
+	font-size: 23px;
+	width: 400px;
+	position: absolute;
+	top: 8%;
+	left: 50%;
+	margin-left: -180px;
+
+}
+
+.youfinishline2
+{
+	font-size: 23px;
+	width: 200px;
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	margin-left: -100px;
+
+}
+
+#onestar
+{
+	width: 50px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -25px;
+}
+
+#twostar
+{
+	
+	width: 120px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -60px;
+}
+
+#threestar
+{
+	
+	width: 170px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -90px;
+}
+
+#fourstar
+{
+	
+	width: 220px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -110px;
+}
+
+#fivestar
+{
+	
+	width: 270px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -140px;
+}
+
+#num-of-retry
+{
+	
+	position: absolute;
+	top: 45%;
+	font-size:23px;
+	left: 50%;
+	margin-left: -70px;
+}
+
+#category-unlock
+{
+	
+	position: absolute;
+	top: 55%;
+	font-size:23px;
+	left: 50%;
+	margin-left: -230px;	
+}
+
+</style>
+</head>
+
+<body>
+<script type="text/javascript">
+	document.addEventListener("deviceready", deviceisready, false);
+	
+function deviceisready()
+{
+
+   	screen.orientation.lock('landscape');
+
+
+   	var cl = window.localStorage.getItem('lamb_current_level');
+   	if (cl == null)
+   	{
+   		 cl = 1;
+   	}
+   	console.log(cl);
+	
+	$('#gameProgress').text(cl);
+	for(var i = 1 ; i < cl ; cl--)
+	{	
+		$('#cat_row_lvl_'+cl).removeClass('level-lock');
+	}
+
+    
+    document.addEventListener("backbutton", function(e)
+    {
+       		e.preventDefault();
+            exitAppPopup();
+       
+    });
+
+};
+
+function exitAppPopup() {
+    navigator.notification.confirm(
+        "Do you really want to close this app?", 
+        function(buttonIndex){
+            ConfirmExit(buttonIndex);
+        }, 
+        "Confirmation", 
+        "Yes,No"
+    ); 
+   
+  
+};
+
+function ConfirmExit(stat){
+  
+    if(stat == "1"){
+        navigator.app.exitApp();
+    }else{
+        return;
+    };
+};
+
+$(document).ready(function()
+{
+
+
+
+	var completesong = document.createElement('audio');
+	completesong.setAttribute('src','../audio/lamb complete.mp3');
+
+	var yehey = document.createElement('audio');
+	yehey.setAttribute('src' , '../audio/cheer.mp3');
+
+
+	$('.yehey').on('pagecreate', function()
+	{
+		yehey.currentTime = 0;
+		yehey.play();
+	});
+
+	
+	
+	$('#end_page').on("pagecreate",function(event)
+		{
+ 			 var retries = window.localStorage.getItem("lamb_num_ret");
+ 			 $('#num-of-retry-span').text(retries);
+ 			 var stars = parseInt(retries);
+ 			 console.log(stars);
+ 			 completesong.currentTime = 0;
+ 			 completesong.play();
+
+ 			 countingStars(stars);
+
+ 			 window.localStorage.setItem("rain",'unlocked');
+		});
+
+	
+
+
+	function countingStars($stars)
+	{
+		var stars = $stars;
+
+		if (stars <= 20 ) 
+		{
+			$('#fivestar').show();
+		}
+		else if (stars <= 35) 
+		{
+			$('#fourstar').show();
+
+		}
+		else if (stars <= 45) 
+		{
+			$('#threestar').show();
+		}
+		else if (stars <= 55) 
+		{
+			$('#twostar').show();
+		}
+		else if (stars >= 56) 
+		{
+			$('#onestar').show();
+		}
+		else
+		{
+			alert('NOT a Number');
+		}
+	}	
+
+});
+
+
+</script>
+
+<!-- dito nakalagay yung save progress --><p id="gameProgress" hidden></p> <!-- -->
+
+
+
+
+
+	 <!-- tut overlay -->
+
+	 	<div class="tut_overlay" hidden >
+	 		
+	 		<div id="tut_page-1">
+	 			<h2 class="tut_instruction">Tap a shape to hear the sound</h2>
+	 			<img src="../tutorial_pics/tut_p1.gif" width="100%" height="100%" />
+
+	 			<div class="center">
+  				<div class="pagination">
+				  
+				  <a href="#" class="active">1</a>
+				  <a href="#" onclick="showTutPage2();">2</a>
+				  <a href="#" onclick="showTutPage3();">3</a>
+				  <a href="#" onclick="showTutPage4();">4</a>
+				  <a href="#" onclick="skip();">skip</a>
+				  
+				  </div>
+				</div>
+
+	 		</div>
+
+	 		<div id="tut_page-2" hidden>
+	 			<h2 class="tut_instruction" style="margin-left: -211px;">Tap Play to start the Level</h2>
+	 			<img src="../tutorial_pics/tut_p2.gif" width="100%" height="100%" />
+
+	 			<div class="center">
+  				<div class="pagination">
+				  
+				  <a href="#" onclick="showTutPage1();">1</a>
+				  <a href="#" class="active">2</a>
+				  <a href="#" onclick="showTutPage3();">3</a>
+				  <a href="#" onclick="showTutPage4();">4</a>
+				  <a href="#" onclick="skip();">skip</a>
+				  
+				  </div>
+				</div>
+
+	 		</div>
+
+	 		<div id="tut_page-3" hidden>
+	 			<h2 class="tut_instruction" style="margin-left: -169px;">Choose your answer</h2>
+	 			<img src="../tutorial_pics/tut_p3.gif" width="100%" height="100%" />
+
+	 			<div class="center">
+  				<div class="pagination">
+				  
+				  <a href="#" onclick="showTutPage1();">1</a>
+				  <a href="#" onclick="showTutPage2();">2</a>
+				  <a href="#" class="active" >3</a>
+				  <a href="#" onclick="showTutPage4();">4</a>
+				  <a href="#" onclick="skip();">skip</a>
+				  
+				  </div>
+				</div>
+
+	 		</div>
+
+	 		<div id="tut_page-4" hidden>
+	 			<h2 class="tut_instruction" style="margin-left: -196px;">Check if you got it right</h2>
+	 			<img src="../tutorial_pics/tut_p4.gif" width="100%" height="100%" />
+
+	 			<div class="center">
+  				<div class="pagination">
+				  
+				  <a href="#" onclick="showTutPage1();">1</a>
+				  <a href="#" onclick="showTutPage2();">2</a>
+				  <a href="#" onclick="showTutPage3();">3</a>
+				  <a href="#" class="active" >4</a>
+				  <a href="#" onclick="skip();">skip</a>
+				  
+				  </div>
+				</div>
+
+	 		</div>
+	 		
+
+	 	</div>
+	 <!-- tut overlay end -->
+
+
+
+	
+
+
+<!-------  END PAGE ----- -->
+
+<div data-role='page' id="end_page">
+	
+	<div data-role='header' class="trans noborder">
+		
+	</div>
+
+	<div data-role='main' class="ui-content" >
+
+		
+				<p class="youfinish"> You Finished Marry Had  </p>
+				<p class="youfinishline2"> A Little Lamb</p>
+				<div id="numofstars">
+					
+					<div id="onestar" hidden>
+					<img src="../shapes/endstar.png" width="50" height="50" />
+					</div>
+
+					<div id="twostar" hidden>
+					<img src="../shapes/endstar.png" width="50" height="50" />
+					<img src="../shapes/endstar.png" width="50" height="50" />
+					</div>
+
+					<div id="threestar" hidden>
+					<img src="../shapes/endstar.png" width="50" height="50" />
+					<img src="../shapes/endstar.png" width="50" height="50" />
+					<img src="../shapes/endstar.png" width="50" height="50" />
+					</div>
+
+					<div id="fourstar" hidden>
+					<img src="../shapes/endstar.png" width="50" height="50" />
+					<img src="../shapes/endstar.png" width="50" height="50" />
+					<img src="../shapes/endstar.png" width="50" height="50" />
+					<img src="../shapes/endstar.png" width="50" height="50" />
+					</div>
+
+					<div id="fivestar" hidden >
+					<img src="../shapes/endstar.png" width="50" height="50" />
+					<img src="../shapes/endstar.png" width="50" height="50" />
+					<img src="../shapes/endstar.png" width="50" height="50" />
+					<img src="../shapes/endstar.png" width="50" height="50" />
+					<img src="../shapes/endstar.png" width="50" height="50" />
+					</div>
+
+				</div>
+
+				<p id="num-of-retry"><span id="num-of-retry-span"></span> Tries </p>
+				<p id="category-unlock"> You unlocked a new category </p>
+
+				<a href="../index.html#category" rel="external" id="end_page_proceed"  class="ui-btn ui-btn-inline brad20px  greenbg">PROCEED</a>
+	</div>
+
+
+</div>
+<!-- ------   END PAGE END -- -->
+
+
+
+
+
+
+<!--  -------- ROW ROW ROW ---- -->
+
+<div data-role="page" id="row1to10" style="background: url('../levelsbg.jpg') no-repeat fixed center/cover;">
+	<div data-role="header" style="background: none !important;border: none;">
+		<a href="../index.html#category" rel="external" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" >Back</a>
+		<h1>Marry Had A Little Lamb</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+
+<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+	<a class="ui-btn levels level1 " href="#row_lvl_1_"  ></a>
+	<a class="ui-btn levels level2 level-lock" href="#row_lvl_2_" id="cat_row_lvl_2"></a>
+	<a class="ui-btn levels level3 level-lock" href="#row_lvl_3_" id="cat_row_lvl_3"></a>
+	<a class="ui-btn levels level4 level-lock" href="#row_lvl_4_" id="cat_row_lvl_4"></a>
+	<a class="ui-btn levels level5 level-lock" href="#row_lvl_5_" id="cat_row_lvl_5"></a>
+</div>
+
+
+
+<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+	<a class="ui-btn levels level6 level-lock" href="#row_lvl_6_" id="cat_row_lvl_6"></a>
+	<a class="ui-btn levels level7 level-lock" href="#row_lvl_7_" id="cat_row_lvl_7"></a>
+	<a class="ui-btn levels level8 level-lock" href="#row_lvl_8_" id="cat_row_lvl_8"></a>
+	<a class="ui-btn levels level9 level-lock" href="#row_lvl_9_" id="cat_row_lvl_9"></a>
+	<a class="ui-btn levels level10 level-lock" href="#row_lvl_10_" id="cat_row_lvl_10"></a>
+</div>	 
+	 </div>
+	
+
+</div>
+
+<!--ROW LEVEL 1 -->
+	<div data-role="page" id="row_lvl_1_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 1</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center; " >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_1_s1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_1_s2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_1_s3" style="border: none;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_1_1">1</td>
+						<td id="row_lvl_1_2">2</td>
+
+					</tr>
+				</table>
+
+		
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_1_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_1_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_1_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_1_ans2" style="border: none;" ></a>
+			</div>
+
+		
+
+	
+    </div>
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true"  id="row_lvl_1_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_1_w1 "  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_1_w2 "  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 2</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_1_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_1_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_1_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_1_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="../index.html#menu" rel="external" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+
+<!-- END ROW LEVEL 1 -->
+
+
+<!-- ROW LEVEL 2 -->
+	<div data-role="page" id="row_lvl_2_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 2</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_2_s1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_2_s2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_2_s3" style="border: none;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_2_1">1</td>
+						<td id="row_lvl_2_2">2</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center; " >
+			<a id="row_lvl_2_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_2_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>				
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_2_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_2_ans2" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true"  id="row_lvl_2_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_2_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_2_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 3</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_2_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_2_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_2_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_2_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="../index.html#menu" rel="external" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 2 -- >	
+
+
+
+<!-- ROW LEVEL 3 -->
+	<div data-role="page" id="row_lvl_3_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 3</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_3_s1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_3_s2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_3_s3" style="border: none;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_3_1">1</td>
+						<td id="row_lvl_3_2">2</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_3_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_3_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_3_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_3_ans2" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_3_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_3_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_3_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 4</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_3_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_3_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_3_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_3_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="../index.html#menu" rel="external" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 3 -->
+
+
+<!-- ROW LEVEL 4 -->
+	<div data-role="page" id="row_lvl_4_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 4</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_4_s1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_4_s2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_4_s3" style="border: none;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_4_1">1</td>
+						<td id="row_lvl_4_2">2</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_4_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_4_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_4_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_4_ans2" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_4_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_4_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_4_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 5</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_4_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_4_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_4_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_4_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="../index.html#menu" rel="external" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 4 -->
+
+<!-- ROW LEVEL 5 -->
+	<div data-role="page" id="row_lvl_5_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 5</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_5_s1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_5_s2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_5_s3" style="border: none;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_5_1">1</td>
+						<td id="row_lvl_5_2">2</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_5_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_5_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_5_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_5_ans2" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_5_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_5_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_5_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 6</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_5_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_5_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_5_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_5_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="../index.html#menu" rel="external" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 5 -->
+
+
+
+<!-- ROW LEVEL 6 -->
+	<div data-role="page" id="row_lvl_6_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 6</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_6_s1" style="border: none; margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_6_s2" style="border: none; margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_6_s3" style="border: none; margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_6_s4" style="border: none; margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_6_s5" style="border: none; margin: 0 20px !important;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_6_1">1</td>
+						<td id="row_lvl_6_2">2</td>
+						<td id="row_lvl_6_3">3</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_6_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_6_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_6_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_6_ans2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_6_ans3" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_6_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_6_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_6_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_6_w3"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 7</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_6_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_6_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_6_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_6_w3"  style="border: none;" ></a>
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_6_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="../index.html#menu" rel="external" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 6 -->
+
+
+
+<!-- ROW LEVEL 7 -->
+	<div data-role="page" id="row_lvl_7_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 7</h1>
+	</div>
+
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_7_s1" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_7_s2" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_7_s3" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_7_s4" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_7_s5" style="border: none;margin: 0 20px !important;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_7_1">1</td>
+						<td id="row_lvl_7_2">2</td>
+						<td id="row_lvl_7_3">3</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_7_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_7_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_7_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_7_ans2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_7_ans3" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_7_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_7_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_7_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_7_w3"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 8</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_7_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_7_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_7_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_7_w3"  style="border: none;" ></a>
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_7_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="../index.html#menu" rel="external" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div><!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 7 -->
+
+
+
+<!-- ROW LEVEL 8 -->
+	<div data-role="page" id="row_lvl_8_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 8</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_8_s1" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_8_s2" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_8_s3" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_8_s4" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_8_s5" style="border: none;margin: 0 20px !important;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_8_1">1</td>
+						<td id="row_lvl_8_2">2</td>
+						<td id="row_lvl_8_3">3</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_8_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_8_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_8_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_8_ans2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_8_ans3" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_8_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_8_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_8_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_8_w3"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 9</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_8_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_8_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_8_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_8_w3"  style="border: none;" ></a>
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_8_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="../index.html#menu" rel="external" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 8 -->
+
+<!-- ROW LEVEL 9 -->
+	<div data-role="page" id="row_lvl_9_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 9</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_9_s1" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_9_s2" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_9_s3" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_9_s4" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_9_s5" style="border: none;margin: 0 20px !important;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_9_1">1</td>
+						<td id="row_lvl_9_2">2</td>
+						<td id="row_lvl_9_3">3</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_9_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_9_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_9_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_9_ans2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_9_ans3" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_9_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_9_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_9_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_9_w3"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You Unlocked Level 10</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_9_wrong" class="yehey" >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_9_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_9_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_9_w3"  style="border: none;" ></a>
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_9_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="../index.html#menu" rel="external" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 9 -->
+
+
+<!-- ROW LEVEL 10 -->
+	<div data-role="page" id="row_lvl_10_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 10</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s1" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s2" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s3" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s4" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+			</div>
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s5" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s6" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s7" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s8" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_10_1">1</td>
+						<td id="row_lvl_10_2">2</td>
+						<td id="row_lvl_10_3">3</td>
+						<td id="row_lvl_10_4">4</td>
+						<td id="row_lvl_10_5">5</td>
+
+					</tr>
+				</table>
+
+		
+
+	<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_10_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_10_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_10_ans1" style="border: none;margin: 0 10px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_10_ans2" style="border: none;margin: 0 10px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_10_ans3" style="border: none;margin: 0 10px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_10_ans4" style="border: none;margin: 0 10px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_10_ans5" style="border: none;margin: 0 10px !important;" ></a>
+			</div>
+	
+    </div>
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_10_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w3"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w4"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w5"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> Congratulations You Finished This Category</p>
+    
+    <a href="#end_page" data-transition="pop" class="ui-btn ui-btn-inline brad20px pinkbg">SUMMARY</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_10_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w3"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w4"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w5"  style="border: none;" ></a>
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_10_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="../index.html#menu" rel="external" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 10 -->
+
+
+<!--  --------  END ROW ROW ROW ---- -->
+
+
+
+
+</body>
+</html>

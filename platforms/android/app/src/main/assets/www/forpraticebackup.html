@@ -1,0 +1,1520 @@
+//------ FOR PRACTICE MODE
+		$('#p_Ldo').click(function(event)
+		{
+			event.preventDefault();
+			soundLdo.currentTime = 0;
+			$(this).effect('shake','slow').promise(soundLdo.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn(300, tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+
+
+
+
+		});
+		$('#p_re').click(function(event)
+		{
+			soundRe.currentTime = 0;
+			$(this).effect('shake','slow').promise(soundRe.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+		});
+
+		$('#p_mi').click(function(event)
+		{
+			soundMi.currentTime = 0;
+			$(this).effect('shake','slow').promise(soundMi.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+		});
+
+		$('#p_fa').click(function(event)
+		{
+			soundFa.currentTime = 0;
+			$(this).effect('shake','slow').promise(soundFa.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+		});
+
+		$('#p_sol').click(function(event)
+		{
+			soundSol.currentTime = 0;
+			$(this).effect('shake','slow').promise(soundSol.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+
+		});
+		$('#p_la').click(function(event)
+		{
+			soundLa.currentTime = 0;
+			$(this).effect('shake','slow').promise(soundLa.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+
+		});
+		$('#p_si').click(function(event)
+		{
+			soundSi.currentTime = 0;
+			$(this).effect('shake','slow').promise(soundSi.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+		});
+
+		$('#p_Hdo').click(function(event)
+		{
+			soundHdo.currentTime = 0;
+			$(this).effect('shake','slow').promise(soundHdo.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut('slow', function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn('slow', tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+
+		});
+						
+
+//------ FOR PRACTICE MODE END

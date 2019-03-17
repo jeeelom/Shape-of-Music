@@ -1,0 +1,4899 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shape of Music</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script src="jQuery.js"></script>
+	<script src="jqui/jquery-ui.js"></script>
+	<script src="jqm.js"></script>
+	<script src="script.js"></script>
+	<link rel="stylesheet" type="text/css" href="jqm.css">
+	
+<style>
+
+@font-face {
+font-family: 'WickedMouse';
+src: url('fonts/Wicked Mouse Demo.otf') format("opentype");
+}
+
+	
+@font-face {
+font-family: 'kidstuff';
+src: url('fonts/Kids Stuff.ttf');
+}
+
+@font-face {
+font-family: 'konigsberg';
+src: url('konigsberg.otf') format("opentype");
+}
+
+
+*
+{
+	font-family: "WickedMouse" !important;
+}
+
+.Gill-Sans-Ultra-Bold
+{
+	font-family: 'Gill Sans Ultra Bold' !important;
+}
+
+.konigsberg
+{
+	font-family: "konigsberg" !important;
+}
+
+.kidstuff
+{
+	font-family: "kidstuff" !important;
+}
+
+th {
+    border-bottom: 1px solid #d6d6d6;
+}
+tr
+{
+	border-bottom: 1px solid #d6d6d6;
+}
+
+tr:nth-child(even) {
+    background: #e9e9e9;
+}
+.trans
+{
+	background:none !important;
+}
+
+.disabled
+{
+	pointer-events: none !important; 
+
+}
+
+.noevent
+{
+	pointer-events: none !important; 
+
+}
+
+.locked
+{
+	pointer-events: none;
+	background-color: gray !important;
+	color: black !important;
+}
+.noborder
+{
+	border: none !important;
+}
+.center
+{
+	text-align: center !important;
+}
+.bold
+{
+	font-weight: bold !important;
+}
+
+
+.levels
+{
+	width: 45px;
+	height: 45px;
+	
+	margin: 20px 20px !important;
+	border: none !important;
+}
+.level1 , .level2, .level3 , .level4 , .level5 , .level6
+{
+	background-color: rgb(230,249,255) !important;
+}
+.level7 , .level8, .level9, .level10
+{
+	background-color: rgb(188,245,252) !important;
+}
+
+.level1
+{
+	background-image:url(level_images/num1.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level2
+{
+	background-image:url(level_images/num2.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level3
+{
+	background-image:url(level_images/num3.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level4
+{
+	background-image:url(level_images/num4.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level5
+{
+	background-image:url(level_images/num5.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level6
+{
+	background-image:url(level_images/num6.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level7
+{
+	background-image:url(level_images/num7.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level8
+{
+	background-image:url(level_images/num8.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level9
+{
+	background-image:url(level_images/num9.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.level10
+{
+	background-image:url(level_images/num10.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.level-lock
+{
+	pointer-events: none;
+	background-image:url(level_images/level_lock.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	
+	
+}
+
+
+
+#menu{
+
+	background: url("bgnew.png") no-repeat fixed center/cover;
+
+}
+
+
+#nxt
+	{
+	width: 200px;
+	height: 50px;
+		
+}
+
+
+.shapeStyle
+{
+	width: 35px;
+	height: 35px;
+	background: no-repeat center;
+	background-size: contain;
+	border: none !important;
+	margin: 0px 30px !important;
+	background-color: rgba(0,0,0,0) !important;
+			
+
+}
+
+.shapeStyle8shapes
+{
+	width: 35px;
+	height: 35px;
+	background: no-repeat center;
+	background-size: contain;
+	border: none !important;
+	margin: 0px 10px !important;
+	background-color: rgba(0,0,0,0) !important;
+
+
+}
+
+
+.q_img
+{
+	background-image: url("question_img.png");
+}
+
+.playbtn
+{
+	width: 25px;
+	height: 25px;
+	background-image: url('playbtn.png') !important;
+	background: no-repeat center;
+	background-size: contain;
+	border: none !important;
+	margin: 30px 30px !important;
+}
+
+.checkbtn
+{
+	width: 25px;
+	height: 25px;
+	background-image: url('checkbtn.png') !important;
+	background: no-repeat center;
+	background-size: contain;
+	border: none !important;
+	margin: 30px 30px !important;
+
+}
+.clouds
+{
+	background-color: rgba(0,0,0,0) !important;
+}
+
+#row_lvl_1_, #row_lvl_2_, #row_lvl_3_, #row_lvl_4_, #row_lvl_5_, #row_lvl_6_, #row_lvl_7_, #row_lvl_8_, #row_lvl_9_, #row_lvl_10_
+{
+	background: url("row row BG.png") no-repeat fixed center/cover;
+} 
+
+
+#p_Ldo, #p_re, #p_mi, #p_fa, #p_sol, #p_la, #p_si, #p_Hdo
+{
+	background-color: #b0f0fa;
+}
+
+
+#p_Ldo
+{
+	background-image: url(shapes/circle.png);
+
+}
+#p_re
+{
+	background-image: url(shapes/diamond.png);
+}
+#p_mi
+{
+	background-image: url(shapes/square.png);
+}
+#p_fa
+{
+	background-image: url(shapes/heart.png);
+}
+#p_sol
+{
+	background-image: url(shapes/oblong.png);
+}
+#p_la
+{
+	background-image: url(shapes/rectangle.png);
+}
+#p_si
+{
+	background-image: url(shapes/star.png);
+}
+#p_Hdo
+{
+	background-image: url(shapes/triangle.png);
+}
+
+#menu_buttons
+{
+	
+	width: 500px;
+	position: absolute;
+	top: 13%;
+	left: 50%;
+	margin-left:-250px;
+}
+
+#play
+{	
+	background-color: rgba(0,0,0,0);
+	background-image: url('shapes/menu_play.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 77px;
+	height: 75px;
+	margin: 5px;
+	border: none;
+}
+#menu_practice
+{
+	background-color: rgba(0,0,0,0);
+	background-image: url('shapes/menu_practice.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 75px;
+	height: 75px;
+	margin: 5px;
+	border: none;
+}
+#menu_tut
+{
+	background-color: rgba(0,0,0,0);
+	background-image: url('shapes/menu_tutorial.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 75px;
+	height: 75px;
+	margin: 5px;
+	border: none;
+	
+}
+#menu_exit
+{
+	background-color: rgba(0,0,0,0);
+	background-image: url('shapes/menu_exit.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 75px;
+	height: 75px;
+	margin: 5px;
+	border: none;
+	
+}
+
+.rounded
+{
+	border-radius: 25px !important;
+}
+
+#practice_page , #songs-tut
+{
+	background: url("practicebg.jpg") no-repeat fixed center/cover;	
+}
+
+.categorybtn
+{
+	height: 180px; width: 180px; border-radius: 100% !important ;
+}
+
+#category1
+{
+	background: url("category_images/row row.jpg") no-repeat;
+	background-size: cover;
+}
+#category2
+{
+	background: url("category_images/itsybitsy_lock.png") no-repeat;
+	background-size: cover;	
+}
+#category3
+{
+	background: url("category_images/sleeplock.png") no-repeat;
+	background-size: cover;
+}
+#category4
+{
+	background: url("category_images/baa baa sheep_lock.png") no-repeat;
+	background-size: cover;
+}
+#category5
+{
+	background: url("category_images/london_lock.png") no-repeat;
+	background-size: cover;
+}
+#category6
+{
+	background: url("category_images/mary_lock.png") no-repeat;
+	background-size: cover;
+}
+#category7
+{
+	background: url("category_images/rain rain go away_lock.png") no-repeat;
+	background-size: cover;
+}
+#category8
+{
+	background: url("category_images/twinkle twinkle_lock.png") no-repeat;
+	background-size: cover;
+}
+#category9
+{
+	background: url("category_images/doe a deer_lock.png") no-repeat;
+	background-size: cover;
+}
+#category10
+{
+	background: url("category_images/oldmcdonald_lock.png") no-repeat;
+	background-size: cover;
+}
+
+
+
+.pagination {
+  display: inline-block;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  margin-left: -150.5px;
+
+  
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  margin: 0 4px;
+
+}
+
+.pagination a.active {
+  background-color: rgb(14,115,143);
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+#tut_overlay
+{
+	background: url("row row BG.png") no-repeat center/cover;
+}
+
+.tut_instruction
+{	
+	
+	position: absolute;
+	left: 50%;
+	margin-left: -226.5px;
+	z-index: 5000;
+	color: black;
+	border: 2px solid black;
+	border-radius: 50px;
+	background-color: white;
+	padding: 5px;
+
+}
+
+.yellowbg
+{
+	background-image: url("shapes/bg1.png");
+
+}
+
+.redbg
+{
+	background-image: url("shapes/bg2.png");
+
+}
+
+.brad20px
+{
+	border-radius: 20px !important;
+}
+
+.pinkbg
+{
+	background-color: rgb(255,128,128) !important;
+}
+
+.greenbg
+{
+	background-color: rgb(56,222,106) !important;
+}
+
+.youranswer
+{
+	background-color: rgb(255,28,33);
+	width: 180px;
+	border: 2px solid black;
+	position: relative;
+	left: 50%;
+	margin-left: -90px;
+}
+
+.iswrong
+{	
+	background-color: rgb(255,28,33);
+	width: 180px;
+	border: 2px solid black;
+	position: relative;
+	left: 50%;
+	margin-left: -90px;
+}
+
+#sound-on-off
+{
+	background-image: url('shapes/soundon.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	border: 1px solid black;
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: 50px;
+	margin:5px;
+	
+}
+
+#end_page
+{
+	background-image: url('shapes/end-page-bg.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+
+}
+
+#end_page_proceed
+{
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	margin-left: -59px;	
+}
+
+.youfinish
+{
+	font-size: 23px;
+	width: 400px;
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	margin-left: -200px;
+
+}
+
+#onestar
+{
+	width: 50px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -25px;
+}
+
+#twostar
+{
+	
+	width: 120px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -60px;
+}
+
+#threestar
+{
+	
+	width: 170px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -90px;
+}
+
+#fourstar
+{
+	
+	width: 220px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -110px;
+}
+
+#fivestar
+{
+	
+	width: 270px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -140px;
+}
+
+#num-of-retry
+{
+	
+	position: absolute;
+	top: 45%;
+	font-size:23px;
+	left: 50%;
+	margin-left: -70px;
+}
+
+#category-unlock
+{
+	
+	position: absolute;
+	top: 55%;
+	font-size:23px;
+	left: 50%;
+	margin-left: -230px;	
+}
+
+.note_one
+{
+	background-color:  rgba(0,0,0,0);
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 50%;
+	margin-top: -20px;
+	left:  50%;
+	margin-left: -20px;
+	border: none;
+}
+
+.ui-panel-inner {
+   position: absolute;
+   top: 1px;
+   left: 0;
+   right: 0;
+   bottom: 0px;
+   overflow: scroll;
+   -webkit-overflow-scrolling: touch;
+}
+
+#mypanel
+{
+	background-color: rgba(0,0,0,0) !important;
+}
+
+.panelbtn1
+{
+	margin: 5px !important;
+	font-size: 15px;
+	border-radius: 20px !important;
+	background-color: rgb(255,128,192) !important;
+}
+
+.panelbtn2
+{
+	margin: 5px !important;
+	font-size: 15px;
+	border-radius: 20px !important;
+	background-color: rgb(0,255,64) !important;
+}
+
+.panelbtn3
+{
+	margin: 5px !important;
+	font-size: 15px;
+	border-radius: 20px !important;
+	background-color: rgb(64,159,255) !important;
+}
+
+.panelbtn4
+{
+	margin: 5px !important;
+	font-size: 15px;
+	border-radius: 20px !important;
+	background-color: rgb(255,163,70) !important;
+}
+
+.panelbtn5
+{
+	margin: 5px !important;
+	font-size: 15px;
+	border-radius: 20px !important;
+	background-color: rgb(223,102,223) !important;
+}
+
+.panelbtn6
+{
+	margin: 5px !important;
+	font-size: 15px;
+	border-radius: 20px !important;
+	background-color: rgb(185,185,185) !important;
+}
+
+.panelbtn7
+{
+	margin: 5px !important;
+	font-size: 15px;
+	border-radius: 20px !important;
+	background-color: rgb(255,60,60) !important;
+}
+
+.panelbtn8
+{
+	margin: 5px !important;
+	font-size: 15px;
+	border-radius: 20px !important;
+	background-color: rgb(255,255,91) !important;
+}
+
+.panelbtn9
+{
+	margin: 5px !important;
+	font-size: 15px;
+	border-radius: 20px !important;
+	background-color: rgb(128,128,255) !important;
+}
+
+.panelbtn10
+{
+	margin: 5px !important;
+	font-size: 15px;
+	border-radius: 20px !important;
+	background-color: rgb(255,111,111) !important;
+}
+
+.cat_head
+{
+
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 300px;
+	height: 50px;
+	background-image: url('category_images/cat_header.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	margin-left: -150px;
+}
+
+.tut_buttons
+{
+	
+	width: 608px;
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	margin-left: -304px;
+}
+
+.tut_playcheck
+{
+	
+	width: 256px;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	margin-left: -128px;
+}
+
+.tut_answers
+{
+	
+	width: 256px;
+	position: absolute;
+	top: 65%;
+	left: 50%;
+	margin-left: -128px;
+}
+
+#tut_row_lvl_1_s1
+{
+	background-image: url('shapes/diamond.png');
+}
+
+#tut_row_lvl_1_s2
+{
+	background-image: url('shapes/circle.png');
+}
+
+#tut_row_lvl_1_s3
+{
+	background-image: url('shapes/heart.png');
+}
+
+
+#p_piano_btn
+{
+	background: url("images/piano.png") no-repeat center/cover; 
+}
+
+#p_guitar_btn
+{
+	background: url("images/guitar.png") no-repeat center/cover; 
+}
+
+#p_sax_btn
+{
+	background: url("images/saxophone.png") no-repeat center/cover; 
+}
+
+#p_violin_btn
+{
+	background: url("images/violin.png") no-repeat center/cover; 
+}
+
+.instrument
+{
+	width: 30px;
+	height: 30px;
+	top: -20px;
+	margin:10px 10px 0 0 !important;
+
+}
+
+#tut_finished
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: pink;
+	z-index: 5000;
+	background-image: url('shapes/end-page-bg.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+
+}
+
+.tut_finished_mes
+{
+	
+	font-size: 36px;
+	text-align: center;	
+}
+
+.tut_finished_btn
+{
+	width: 300px !important;
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+	margin-left: -150px;
+	background-color: pink !important;
+	font-size: 24px;
+
+}
+.grayscreen
+{
+	z-index: 4999;
+	background-color: gray !important;
+	opacity: 0.9;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height:100%;
+	
+
+}
+
+.zindex-5000
+{
+	z-index: 5000 !important;
+	border-width: 3px !important;
+    border-color: #9ecaed;
+    box-shadow: 0 0 20px rgb(11,194,255);
+}
+
+.zindex-5000-red
+{
+	z-index: 5000 !important;
+	border-width: 3px !important;
+    border-color: #9ecaed;
+    box-shadow: 0 0 20px rgb(235,31,46);
+}
+
+
+.pointing-hand
+{
+	background-image: url("pointing.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	z-index: 5000;
+	width: 70px;
+	height: 70px;
+	
+}
+
+.current-step
+{
+	border: 1px solid;
+	border-radius: 50px;
+	position: absolute;
+	bottom: 8%;
+	left: 50%;
+	margin-left: -250px;
+	width: 500px;
+	text-align: center;
+	border-color: #9ecaed;
+    box-shadow: 0 0 20px rgb(14,245,66);
+
+}
+
+.current-step-mes
+{	font-family: 'Arial Black' !important;
+	font-size: 25px; 
+	color: white;
+	text-shadow: 2px 2px rgb(14,245,66);
+}
+
+.skip-tut
+{	font-family: 'Arial Black' !important;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 12px;
+	border: none !important;
+}
+
+</style>
+</head>
+
+<body>
+<script type="text/javascript">
+	document.addEventListener("deviceready", deviceisready, false);
+	
+function deviceisready()
+{
+
+   	screen.orientation.lock('landscape');
+
+
+   	var cl = window.localStorage.getItem('row_current_level');
+   	if (cl == null)
+   	{
+   		 cl = 1;
+   	}
+   	console.log(cl);
+	
+	$('#gameProgress').text(cl);
+	for(var i = 1 ; i < cl ; cl--)
+	{	
+		$('#cat_row_lvl_'+cl).removeClass('level-lock');
+	}
+
+    
+    document.addEventListener("backbutton", function(e)
+    {
+       		e.preventDefault();
+            exitAppPopup();
+       
+    });
+
+    
+
+	
+
+};
+
+function exitAppPopup() {
+    navigator.notification.confirm(
+        "Do you really want to close this app?", 
+        function(buttonIndex){
+            ConfirmExit(buttonIndex);
+        }, 
+        "Confirmation", 
+        "Yes,No"
+    ); 
+   
+  
+};
+
+function ConfirmExit(stat){
+  
+    if(stat == "1"){
+        navigator.app.exitApp();
+    }else{
+        return;
+    };
+};
+
+$(document).ready(function()
+{
+
+	var bgmusic =  window.localStorage.getItem("bgmusic");
+	console.log("BGMUSIC = " + bgmusic);
+	
+	var soundison;
+
+	var yehey = document.createElement('audio');
+	yehey.setAttribute('src' , 'audio/cheer.mp3');
+
+	
+	var menuMusic = document.createElement('audio');
+	menuMusic.setAttribute('src','audio/happymusic.mp3');
+
+	
+	if (bgmusic == "on" || bgmusic == null) 
+	{
+		soundison = true;
+		window.localStorage.setItem("bgmusic",'on');
+		$('#sound-on-off').css('background-image' , 'url(shapes/soundon.png)' );
+
+		if (location.hash == "" || location.hash == "#menu" )
+		{
+			menuMusic.currentTime = 0;
+			menuMusic.play();
+		}
+	
+	}
+	else
+	{
+		soundison = false;
+		$('#sound-on-off').css('background-image' , 'url(shapes/soundoff.png)' );
+	}
+
+	
+	
+
+	
+	$('.reloadPage').click(function()
+	{
+		if (soundison == true) 
+		{
+			menuMusic.currentTime = 0;
+			menuMusic.play();	
+		}
+		else
+		{
+			//wala
+		}
+			
+	});
+
+	$('.yehey').on('pagecreate', function()
+	{
+		yehey.currentTime = 0;
+		yehey.play();
+	});
+
+	$('#tut_overlay').on('pagecreate',function()
+	{
+		$('.grayscreen').show();
+	});
+
+
+	var btnclick = document.createElement('audio');
+	btnclick.setAttribute('src', 'audio/btnclick.wav');
+
+	$('.btnclick').click(function()
+	{
+		btnclick.currentTime = 0;
+		btnclick.play();
+	});
+
+	
+	var tut_row_active = false;
+	var tut_itsybitsy_active = false;
+	var tut_sleeping_active = false;
+	var tut_sheep_active = false;
+	var tut_bridge_active = false;
+	var tut_lamb_active = false;
+	var tut_rain_active = false;
+	var tut_twinkle_active = false;
+	var tut_deer_active = false;
+	var tut_mcdonald_active = false;
+
+	var tut_count = 0;
+
+	
+	var tut_row_arr =  [ '#p_Ldo','#p_Ldo', '#p_Ldo','#p_re', '#p_mi','#p_mi', '#p_re','#p_mi', '#p_fa','#p_sol', '#p_Hdo','#p_Hdo','#p_Hdo',
+	 '#p_sol','#p_sol','#p_sol', '#p_mi','#p_mi','#p_mi', '#p_Ldo','#p_Ldo','#p_Ldo', '#p_sol','#p_fa','#p_mi','#p_re','#p_Ldo' ] ;
+	
+
+	var tut_itsybitsy_arr = [ '#p_sol' ,'#p_Ldo', '#p_Ldo', '#p_Ldo', '#p_re', '#p_mi', '#p_mi', '#p_mi', '#p_Ldo', '#p_re', '#p_re', '#p_mi', 
+	'#p_Ldo', '#p_sol', '#p_sol', '#p_sol', '#p_sol' ,'#p_sol' ,'#p_fa' ,'#p_mi' ,'#p_fa' ,'#p_sol' ,'#p_mi' ,'#p_Ldo', '#p_sol', '#p_sol'  ];
+
+	var tut_sleep_arr = [ '#p_Ldo', '#p_re', '#p_mi', '#p_Ldo', '#p_Ldo', '#p_re', '#p_mi', '#p_Ldo', '#p_mi', '#p_fa', '#p_sol', '#p_mi', 
+	'#p_fa', '#p_sol',  '#p_sol', '#p_la', '#p_sol', '#p_fa', '#p_mi', '#p_Ldo', '#p_sol', '#p_la', '#p_sol', '#p_fa', '#p_mi', '#p_Ldo',
+	'#p_Ldo', '#p_sol', '#p_Ldo', '#p_Ldo', '#p_sol', '#p_Ldo' ];
+
+	var tut_sheep_arr = [ '#p_re', '#p_re', '#p_la', '#p_la', '#p_si', '#p_si', '#p_si', '#p_si', '#p_la', '#p_sol', '#p_sol', '#p_fa', '#p_fa',
+	 '#p_mi', '#p_mi','#p_re', '#p_re', '#p_re', '#p_re', '#p_la', '#p_la', '#p_la', '#p_si', '#p_si', '#p_si', '#p_la', '#p_la', '#p_sol', '#p_sol', '#p_sol', '#p_fa', '#p_mi', '#p_mi', '#p_re', '#p_mi', '#p_mi', '#p_mi', '#p_re' ];
+
+
+	var tut_bridge_arr = [ '#p_sol', '#p_la', '#p_sol', '#p_fa','#p_mi', '#p_fa','#p_sol', '#p_re','#p_mi', '#p_fa','#p_mi', '#p_fa', '#p_mi',
+		'#p_fa', '#p_sol', '#p_sol','#p_la', '#p_sol', '#p_fa','#p_mi', '#p_fa','#p_sol','#p_sol', '#p_re', '#p_sol', '#p_mi', '#p_Ldo' ];
+
+	var tut_lamb_arr = [ '#p_mi', '#p_re','#p_Ldo', '#p_re','#p_mi', '#p_mi','#p_mi', '#p_re','#p_re', '#p_re','#p_mi', '#p_mi','#p_mi',
+		'#p_mi', '#p_re', '#p_Ldo','#p_re', '#p_mi', '#p_mi','#p_mi', '#p_Ldo', '#p_re','#p_re', '#p_re', '#p_mi', '#p_re', '#p_Ldo'  ];
+
+
+	var tut_rain_arr = [ '#p_sol', '#p_mi','#p_sol', '#p_sol','#p_mi', '#p_sol' ,'#p_sol', '#p_mi','#p_la', '#p_sol', '#p_sol', '#p_mi', '#p_fa',
+				'#p_fa', '#p_re', '#p_re','#p_fa', '#p_fa', '#p_re','#p_sol', '#p_fa', '#p_mi','#p_re', '#p_mi', '#p_Ldo', '#p_Ldo' ];
+
+
+	var tut_twinkle_arr = [ '#p_Ldo', '#p_Ldo','#p_sol', '#p_sol','#p_La', '#p_La','#p_sol', '#p_fa','#p_fa', '#p_mi','#p_mi', '#p_mi', '#p_re',
+		'#p_Ldo', '#p_sol', '#p_sol','#p_fa', '#p_fa', '#p_mi','#p_mi', '#p_re', '#p_sol','#p_sol', '#p_fa', '#p_fa', '#p_mi', '#p_mi',
+		'#p_re', '#p_Ldo', '#p_Ldo', '#p_sol', '#p_sol', '#p_sol', '#p_la', '#p_la', '#p_sol', '#p_fa', '#p_fa', '#p_mi', '#p_mi', '#p_re', 
+		'#p_re', '#p_Ldo'];
+
+
+	var tut_deer_arr = [ '#p_Ldo', '#p_re','#p_mi', '#p_Ldo','#p_mi', '#p_Ldo','#p_mi', '#p_re','#p_mi', '#p_fa', '#p_fa', '#p_mi', '#p_re',
+			'#p_fa', '#p_mi', '#p_fa','#p_sol', '#p_mi', '#p_sol','#p_mi', '#p_fa', '#p_sol','#p_sol', '#p_la', '#p_la', '#p_sol', '#p_fa', '#p_la',
+			'#p_sol', '#p_Ldo', '#p_re', '#p_mi', '#p_fa', '#p_sol', '#p_la', '#p_la', '#p_re','#p_mi', '#p_fa', '#p_sol' ];
+
+
+  	var tut_mcdonald_arr = [ '#p_Ldo', '#p_Ldo', '#p_Ldo', '#p_sol', '#p_la', '#p_la',  '#p_sol', '#p_mi',  '#p_mi', '#p_re', '#p_re', '#p_Ldo', 
+  	'#p_Ldo', '#p_Ldo', '#p_Ldo', '#p_Ldo', '#p_sol', '#p_la', '#p_la', '#p_sol', '#p_mi', '#p_mi', '#p_mi', '#p_mi', '#p_re', '#p_re', '#p_Ldo'];
+
+
+
+
+
+
+	
+	
+	
+
+	
+	checkCategoryLocks();
+	
+	$('#sound-on-off').click(function()
+	{
+		
+		soundOnOff();
+	});
+
+	
+
+	$('#end_page').on("pagecreate",function()
+		{
+			var rowcomplete = document.createElement('audio');
+			rowcomplete.setAttribute('src','audio/row complete.mp3');
+
+			 rowcomplete.currentTime = 0;
+ 			 rowcomplete.play();
+
+ 			 var retries = window.localStorage.getItem("num_ret");
+ 			 $('#num-of-retry-span').text(retries);
+ 			 var stars = parseInt(retries);
+ 			 console.log(stars);
+
+ 			
+
+ 			 
+ 			 countingStars(stars);
+
+ 			 window.localStorage.setItem("itsybitsy",'unlocked');
+		});
+
+	$('.levels').click(function()
+	{
+		menuMusic.pause();
+		menuMusic.currentTime = 0;
+	});
+
+	$('#menu_practice').click(function()
+	{
+		menuMusic.pause();
+		menuMusic.currentTime = 0;
+	});
+
+	$('#menu_tut').click(function()
+	{
+		$('.grayscreen').show();
+		$('#tut_row_lvl_1_s1').addClass("zindex-5000");
+		$('.current-step-mes').text('Tap the Diamond');
+		
+	});
+
+	$('#tut_row_init').click(function()
+	{
+		tut_row_active = true;
+		tut_itsybitsy_active = false;
+		tut_sleeping_active = false;
+		tut_sheep_active = false;
+		tut_bridge_active = false;
+		tut_lamb_active = false;
+		tut_rain_active = false;
+		tut_twinkle_active = false;
+		tut_deer_active = false;
+		tut_mcdonald_active = false;
+		tutRow();
+	});
+
+	$('#tut_spider_init').click(function()
+	{
+		tut_row_active = false;
+		tut_itsybitsy_active = true;
+		tut_sleeping_active = false;
+		tut_sheep_active = false;
+		tut_bridge_active = false;
+		tut_lamb_active = false;
+		tut_rain_active = false;
+		tut_twinkle_active = false;
+		tut_deer_active = false;
+		tut_mcdonald_active = false;
+		tutItsyBitsy();
+	});
+
+	$('#tut_sleeping_init').click(function()
+	{
+		tut_row_active = false;
+		tut_itsybitsy_active = false;
+		tut_sleeping_active = true;
+		tut_sheep_active = false;
+		tut_bridge_active = false;
+		tut_lamb_active = false;
+		tut_rain_active = false;
+		tut_twinkle_active = false;
+		tut_deer_active = false;
+		tut_mcdonald_active = false;
+		tutSleep();
+	});
+
+	$('#tut_sheep_init').click(function()
+	{
+		tut_row_active = false;
+		tut_itsybitsy_active = false;
+		tut_sleeping_active = false;
+		tut_sheep_active = true;
+		tut_bridge_active = false;
+		tut_lamb_active = false;
+		tut_rain_active = false;
+		tut_twinkle_active = false;
+		tut_deer_active = false;
+		tut_mcdonald_active = false;
+		tutSheep();
+	});
+
+	$('#tut_bridge_init').click(function()
+	{
+		tut_row_active = false;
+		tut_itsybitsy_active = false;
+		tut_sleeping_active = false;
+		tut_sheep_active = false;
+		tut_bridge_active = true;
+		tut_lamb_active = false;
+		tut_rain_active = false;
+		tut_twinkle_active = false;
+		tut_deer_active = false;
+		tut_mcdonald_active = false;
+		tutBridge();
+	});
+
+	$('#tut_lamb_init').click(function()
+	{
+		tut_row_active = false;
+		tut_itsybitsy_active = false;
+		tut_sleeping_active = false;
+		tut_sheep_active = false;
+		tut_bridge_active = false;
+		tut_lamb_active = true;
+		tut_rain_active = false;
+		tut_twinkle_active = false;
+		tut_deer_active = false;
+		tut_mcdonald_active = false;
+		tutLamb();
+	});
+
+	$('#tut_rain_init').click(function()
+	{
+		tut_row_active = false;
+		tut_itsybitsy_active = false;
+		tut_sleeping_active = false;
+		tut_sheep_active = false;
+		tut_bridge_active = false;
+		tut_lamb_active = false;
+		tut_rain_active = true;
+		tut_twinkle_active = false;
+		tut_deer_active = false;
+		tut_mcdonald_active = false;
+		tutRain();
+	});
+
+	$('#tut_twinkle_init').click(function()
+	{
+		tut_row_active = false;
+		tut_itsybitsy_active = false;
+		tut_sleeping_active = false;
+		tut_sheep_active = false;
+		tut_bridge_active = false;
+		tut_lamb_active = false;
+		tut_rain_active = false;
+		tut_twinkle_active = true;
+		tut_deer_active = false;
+		tut_mcdonald_active = false;
+		tutTwinkle();
+	});
+
+	$('#tut_deer_init').click(function()
+	{
+		tut_row_active = false;
+		tut_itsybitsy_active = false;
+		tut_sleeping_active = false;
+		tut_sheep_active = false;
+		tut_bridge_active = false;
+		tut_lamb_active = false;
+		tut_rain_active = false;
+		tut_twinkle_active = false;
+		tut_deer_active = true;
+		tut_mcdonald_active = false;
+		tutDeer();
+	});
+
+	$('#tut_mcdonald_init').click(function()
+	{
+		tut_row_active = false;
+		tut_itsybitsy_active = false;
+		tut_sleeping_active = false;
+		tut_sheep_active = false;
+		tut_bridge_active = false;
+		tut_lamb_active = false;
+		tut_rain_active = false;
+		tut_twinkle_active = false;
+		tut_deer_active = false;
+		tut_mcdonald_active = true;
+		tutMcdonald();
+	});
+
+
+	$('#p_piano_btn').click(function()
+	{
+		p_firstSND = piano_soundLdo;
+		p_secondSND = piano_soundRe;
+		p_thirdSND = piano_soundMi;
+		p_fourthSND = piano_soundFa;
+		p_fifthSND = piano_soundSol;
+		p_sixthSND = piano_soundLa;
+		p_seventhSND = piano_soundSi;
+		p_eightSND = piano_soundHdo;
+	});
+
+	$('#p_guitar_btn').click(function()
+	{
+		p_firstSND = guitar_soundLdo;
+		p_secondSND = guitar_soundRe;
+		p_thirdSND = guitar_soundMi;
+		p_fourthSND = guitar_soundFa;
+		p_fifthSND = guitar_soundSol;
+		p_sixthSND = guitar_soundLa;
+		p_seventhSND = guitar_soundSi;
+		p_eightSND = guitar_soundHdo;
+	});
+
+	$('#p_sax_btn').click(function()
+	{
+		p_firstSND = sax_soundLdo;
+		p_secondSND = sax_soundRe;
+		p_thirdSND = sax_soundMi;
+		p_fourthSND = sax_soundFa;
+		p_fifthSND = sax_soundSol;
+		p_sixthSND = sax_soundLa;
+		p_seventhSND = sax_soundSi;
+		p_eightSND = sax_soundHdo;
+	});
+
+	$('#p_violin_btn').click(function()
+	{
+		p_firstSND = vio_soundLdo;
+		p_secondSND = vio_soundRe;
+		p_thirdSND = vio_soundMi;
+		p_fourthSND = vio_soundFa;
+		p_fifthSND = vio_soundSol;
+		p_sixthSND = vio_soundLa;
+		p_seventhSND = vio_soundSi;
+		p_eightSND = vio_soundHdo;
+	});
+
+//FOR TUT
+	$('#tut_row_lvl_1_s1').click(function()
+	{
+			stepNumber();
+			$('#tut_row_lvl_1_animate').addClass('disabled');
+			$('#tut_row_lvl_1_s2').addClass('disabled');
+			$('#tut_row_lvl_1_s3').addClass('disabled');
+			$('#tut_row_lvl_1_check').addClass('disabled');
+
+
+			soundLdo.currentTime = 0;
+
+		$(this).effect('shake','slow').promise(soundLdo.play()).done(function()
+				{
+				 	$('#tut_row_lvl_1_animate').removeClass('disabled');
+					$('#tut_row_lvl_1_s2').removeClass('disabled');
+					$('#tut_row_lvl_1_s3').removeClass('disabled');
+					$('#tut_row_lvl_1_check').removeClass('disabled');
+				});
+
+		if (ready)
+			{
+
+
+				
+				$('#tut_row_ans1').css({'background-image': 'url("shapes/diamond.png")' });
+				
+					
+				//check();
+
+
+			}
+
+	});
+
+	$('#tut_row_lvl_1_s2').click(function()
+	{
+			stepNumber();
+			$('#tut_row_lvl_1_animate').addClass('disabled');
+			$('#tut_row_lvl_1_s1').addClass('disabled');
+			$('#tut_row_lvl_1_s3').addClass('disabled');
+			$('#tut_row_lvl_1_check').addClass('disabled');
+
+
+			soundRe.currentTime = 0;
+
+		$(this).effect('shake','slow').promise(soundRe.play()).done(function()
+				{
+				 	$('#tut_row_lvl_1_animate').removeClass('disabled');
+					$('#tut_row_lvl_1_s1').removeClass('disabled');
+					$('#tut_row_lvl_1_s3').removeClass('disabled');
+					$('#tut_row_lvl_1_check').removeClass('disabled');
+				});
+
+
+		if (ready)
+			{
+
+
+				
+				$('#tut_row_ans2').css({'background-image': 'url("shapes/circle.png")' });
+				
+				
+				$('#tut_row_lvl_1_check').removeClass('locked');
+				
+
+				//check();
+
+
+			}
+
+	});
+
+	$('#tut_row_lvl_1_s3').click(function()
+	{
+			stepNumber();
+			$('#tut_row_lvl_1_animate').addClass('disabled');
+			$('#tut_row_lvl_1_s1').addClass('disabled');
+			$('#tut_row_lvl_1_s2').addClass('disabled');
+			//$('#tut_row_lvl_1_check').addClass('disabled');
+
+
+			soundMi.currentTime = 0;
+
+		$(this).effect('shake','slow').promise(soundMi.play()).done(function()
+				{
+				 	$('#tut_row_lvl_1_animate').removeClass('disabled');
+					$('#tut_row_lvl_1_s1').removeClass('disabled');
+					$('#tut_row_lvl_1_s2').removeClass('disabled');
+					//$('#tut_row_lvl_1_check').removeClass('disabled');
+				});
+
+
+	});
+
+
+	$('#tut_row_lvl_1_animate').click(function()
+		{
+			stepNumber();
+			soundLdo.pause();
+	 		soundRePat.pause();
+	 		soundMi2.pause();
+
+			soundLdo.currentTime = 0;
+	 		soundRePat.currentTime = 0;
+	 		soundMi2.currentTime = 0;
+
+	 		$('#tut_row_lvl_1_s1').addClass('disabled');
+	 		$('#tut_row_lvl_1_s2').addClass('disabled');
+	 		$('#tut_row_lvl_1_s3').addClass('disabled');
+			$('#tut_row_lvl_1_animate').addClass('locked');
+
+			$('#tut_row_lvl_1_s1').addClass('zindex-5000');
+
+			$('#tut_row_lvl_1_s1').effect('shake','slow').promise(soundLdo.play()).done(function()
+			{
+				$('#tut_row_lvl_1_s1').removeClass('zindex-5000');
+				$('#tut_row_lvl_1_s2').addClass('zindex-5000');
+
+				$('#tut_row_lvl_1_s2').effect('shake','slow').promise(soundRe.play()).done(function()
+					{
+							$('#tut_row_lvl_1_s2').removeClass('zindex-5000');
+							$('#tut_row_lvl_1_s3').addClass('zindex-5000');
+
+						$('#tut_row_lvl_1_s3').effect('shake','slow').promise(soundMi.play()).done(function()
+						{
+									$('#tut_row_lvl_1_s3').removeClass('zindex-5000');
+									questionSound.play();
+									$(questionSound).on("ended", function()
+									{
+										soundLdo2.play();
+
+										$(soundLdo2).on("ended", function()
+										{
+											if (location.hash == "#row_lvl_1_") {
+												//
+											}
+											else
+											{
+												soundRePat.play();
+											}
+												
+
+
+											
+												$(soundRePat).on("ended", function()
+												{
+													
+													
+													soundLdo2.currentTime = 0;
+													soundRePat.currentTime = 0;
+													
+													soundLdo2.pause();
+													soundRePat.pause();
+													$('#tut_row_lvl_1_s1').removeClass('disabled');
+													$('#tut_row_lvl_1_s2').removeClass('disabled');
+											 		$('#tut_row_lvl_1_s3').removeClass('disabled');
+													//$('#tut_row_lvl_1_check').removeClass('locked');
+													ready = true;
+
+													$('#tut_row_lvl_1_s1').addClass('zindex-5000');
+													$('.current-step-mes').text('Tap the diamond');
+												});
+													
+										
+										});
+									});	
+							
+						});
+
+						
+					});
+			});
+		});
+ 
+
+	$('#tut_row_lvl_1_check').click(function()
+	{
+		stepNumber();
+		checkAnswerTut();
+	});
+
+	$('.tut_finished_btn').click(function()
+	{
+		$('#tut_finished').hide();
+		$('.grayscreen').hide();
+		$('#tut_row_ans1').removeClass('zindex-5000-red');
+		$('#tut_row_ans2').removeClass('zindex-5000-red');
+		if (itslevel1 == true) 
+		{
+			itslevel1 = false;
+			window.location.href = "index.html#row_lvl_1_" ;
+		}
+		else
+		{
+			window.location.href = "index.html#menu" ;	
+		}
+
+
+		
+	});
+
+	$('.tutreload').click(function()
+	{
+						ready = false;
+						$('#tut_row_lvl_1_animate').removeClass("locked");
+						$('#tut_row_lvl_1_check').addClass("locked");
+
+						$('#tut_row_ans1').css('background-image', 'url("question_img.png")');
+						$('#tut_row_ans2').css('background-image', 'url("question_img.png")');
+	});
+
+	$('.skip-tut').click(function()
+	{					
+						ready = false;
+						stepnum = 1;
+						$('.grayscreen').hide();
+						$('#tut_row_lvl_1_animate').removeClass("locked");
+						$('#tut_row_lvl_1_check').addClass("locked");
+
+						$('#tut_row_ans1').css('background-image', 'url("question_img.png")');
+						$('#tut_row_ans2').css('background-image', 'url("question_img.png")');
+
+						$('#tut_row_lvl_1_s2').removeClass('zindex-5000');
+						$('#tut_row_lvl_1_s3').removeClass('zindex-5000');
+						$('#tut_row_lvl_1_animate').removeClass('zindex-5000');
+						$('#tut_row_lvl_1_check').removeClass('zindex-5000');
+						$('#tut_row_ans1').removeClass('zindex-5000-red');
+						$('#tut_row_ans2').removeClass('zindex-5000-red');
+
+						$('.current-step').css(
+						{
+							'top':'',
+							'bottom': '8%',
+							'left': '50%',
+							'margin-left': '-250px'
+						});
+
+						if (itslevel1 == true) 
+						{
+							itslevel1 = false;
+							window.location.href = "index.html#row_lvl_1_" ;
+						}
+						else
+						{
+							window.location.href = "index.html#menu" ;	
+						}
+
+	});
+
+
+//END FOR TUT
+	//------ FOR PRACTICE MODE
+		$('#p_Ldo').click(function(event)
+		{
+			event.preventDefault();
+			p_firstSND.currentTime = 0;
+			$(this).effect('shake','slow').promise(p_firstSND.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+
+
+
+
+		});
+		$('#p_re').click(function(event)
+		{
+			p_secondSND.currentTime = 0;
+			$(this).effect('shake','slow').promise(p_secondSND.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+		});
+
+		$('#p_mi').click(function(event)
+		{
+			p_thirdSND.currentTime = 0;
+			$(this).effect('shake','slow').promise(p_thirdSND.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+		});
+
+		$('#p_fa').click(function(event)
+		{
+			p_fourthSND.currentTime = 0;
+			$(this).effect('shake','slow').promise(p_fourthSND.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+		});
+
+		$('#p_sol').click(function(event)
+		{
+			p_fifthSND.currentTime = 0;
+			$(this).effect('shake','slow').promise(p_fifthSND.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+
+		});
+		$('#p_la').click(function(event)
+		{
+			p_sixthSND.currentTime = 0;
+			$(this).effect('shake','slow').promise(p_sixthSND.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+
+		});
+		$('#p_si').click(function(event)
+		{
+			p_seventhSND.currentTime = 0;
+			$(this).effect('shake','slow').promise(p_seventhSND.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+		});
+
+		$('#p_Hdo').click(function(event)
+		{
+			p_eightSND.currentTime = 0;
+			$(this).effect('shake','slow').promise(p_eightSND.play());
+
+			if (tut_row_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutRow();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRow() );
+					}
+					
+				
+				});
+			}
+			else if (tut_itsybitsy_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutItsyBitsy();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutItsyBitsy() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sleeping_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 32 ) 
+					{
+						tutSleep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSleep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_sheep_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 37 ) 
+					{
+						tutSheep();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutSheep() );
+					}
+					
+				
+				});
+			}
+			else if (tut_bridge_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutBridge();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutBridge() );
+					}
+					
+				
+				});
+			}
+			else if (tut_lamb_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutLamb();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutLamb() );
+					}
+					
+				
+				});
+			}
+			else if (tut_rain_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 26 ) 
+					{
+						tutRain();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutRain() );
+					}
+					
+				
+				});
+			}
+			else if (tut_twinkle_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 42 ) 
+					{
+						tutTwinkle();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutTwinkle() );
+					}
+					
+				
+				});
+			}
+			else if (tut_deer_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 40 ) 
+					{
+						tutDeer();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutDeer() );
+					}
+					
+				
+				});
+			}
+			else if (tut_mcdonald_active == true) 
+			{
+				tut_count++;
+				$('.note_one').fadeOut(300, function()
+				{
+
+					if (tut_count == 27 ) 
+					{
+						tutMcdonald();
+					}
+					else
+					{
+						$('.note_one').fadeIn(150, tutMcdonald() );
+					}
+					
+				
+				});
+			}
+
+
+
+		});
+						
+
+//------ FOR PRACTICE MODE END
+
+	function checkCategoryLocks()
+	{
+		var itsybitsy_cat = window.localStorage.getItem("itsybitsy");
+		if (itsybitsy_cat == 'unlocked' )
+		{	
+			$('#category2').css('background-image', 'url(category_images/itsybitsy.jpg)');
+			$('#category2').removeClass('disabled');
+			console.log('Unlocked');
+		}
+		else
+		{
+			console.log('di pa na ka unlocked');
+			//window.localStorage.setItem("itsybitsy" , "unlocked");
+		}
+
+		var rusleeping_cat = window.localStorage.getItem("rusleeping");
+		if (rusleeping_cat == 'unlocked' )
+		{	
+			$('#category3').css('background-image', 'url(category_images/sleep.png)' );
+			$('#category3').removeClass('disabled');
+			console.log('Unlocked');
+		}
+		else
+		{
+			console.log('di pa na ka unlocked');
+			//window.localStorage.setItem("rusleeping" , "unlocked");
+		}
+
+		var blacksheep_cat = window.localStorage.getItem("blacksheep");
+		if (blacksheep_cat == 'unlocked' )
+		{	
+			$('#category4').css('background-image', 'url(category_images/blacksheep.png)' );
+			$('#category4').removeClass('disabled');
+			console.log('Unlocked');
+		}
+		else
+		{
+			console.log('di pa na ka unlocked');
+			//window.localStorage.setItem("blacksheep" , "unlocked");
+		}
+
+		var bridge_cat = window.localStorage.getItem("bridge");
+		if (bridge_cat == 'unlocked' )
+		{	
+			$('#category5').css('background-image', 'url(category_images/london.jpg)' );
+			$('#category5').removeClass('disabled');
+			console.log('Unlocked');
+		}
+		else
+		{
+			console.log('di pa na ka unlocked');
+			//window.localStorage.setItem("bridge" , "unlocked");
+		}
+
+		var lamb_cat = window.localStorage.getItem("lamb");
+		if (lamb_cat == 'unlocked' )
+		{	
+			$('#category6').css('background-image', 'url(category_images/mary.jpg)' );
+			$('#category6').removeClass('disabled');
+			console.log('Unlocked');
+		}
+		else
+		{
+			console.log('di pa na ka unlocked');
+			//window.localStorage.setItem("lamb" , "unlocked");
+		}
+
+		var rain_cat = window.localStorage.getItem("rain");
+		if (rain_cat == 'unlocked' )
+		{	
+			$('#category7').css('background-image', 'url(category_images/rain.jpg)' );
+			$('#category7').removeClass('disabled');
+			console.log('Unlocked');
+		}
+		else
+		{
+			console.log('di pa na ka unlocked');
+			//window.localStorage.setItem("rain" , "unlocked");
+		}
+
+
+		var twinkle_cat = window.localStorage.getItem("twinkle");
+		if (twinkle_cat == 'unlocked' )
+		{	
+			$('#category8').css('background-image', 'url(category_images/twinkle.jpg)' );
+			$('#category8').removeClass('disabled');
+			console.log('Unlocked');
+		}
+		else
+		{
+			console.log('di pa na ka unlocked');
+			//window.localStorage.setItem("twinkle" , "unlocked");
+		}
+
+		var deer_cat = window.localStorage.getItem("deer");
+		if (deer_cat == 'unlocked' )
+		{	
+			$('#category9').css('background-image', 'url(category_images/deer.png)' );
+			$('#category9').removeClass('disabled');
+			console.log('Unlocked');
+		}
+		else
+		{
+			console.log('di pa na ka unlocked');
+			//window.localStorage.setItem("deer" , "unlocked");
+		}
+
+		var mcdonald_cat = window.localStorage.getItem("mcdonald");
+		if (mcdonald_cat == 'unlocked' )
+		{	
+			$('#category10').css('background-image', 'url(category_images/mcdonald.jpg)' );
+			$('#category10').removeClass('disabled');
+			console.log('Unlocked');
+		}
+		else
+		{
+			console.log('di pa na ka unlocked');
+			//window.localStorage.setItem("mcdonald" , "unlocked");
+		}
+
+
+
+	}
+
+
+	function countingStars($stars)
+	{
+		var stars = $stars;
+
+		if (stars <= 20 ) 
+		{
+			$('#fivestar').show();
+		}
+		else if (stars <= 35) 
+		{
+			$('#fourstar').show();
+
+		}
+		else if (stars <= 45) 
+		{
+			$('#threestar').show();
+		}
+		else if (stars <= 55) 
+		{
+			$('#twostar').show();
+		}
+		else if (stars >= 56) 
+		{
+			$('#onestar').show();
+		}
+		else
+		{
+			alert('NOT a Number');
+		}
+	}	
+
+
+	function tutRow()
+		{
+			
+			console.log(tut_count);
+
+			if ( tut_count == 27) 
+			{
+				
+				
+				tut_count = 0;
+				tut_row_active = false;
+									console.log("end");
+				
+			}
+			else
+			{
+
+				var place = eval('"'+ tut_row_arr[tut_count]+'"');
+				$(place).append($('.note_one'));
+				$('.note_one').show();
+				console.log('pumasok');
+			}
+
+		}
+
+
+	function tutItsyBitsy()
+	{
+			console.log(tut_count);
+
+			if ( tut_count == 26) 
+			{
+				
+				
+				tut_count = 0;
+				tut_itsybitsy_active = false;
+				console.log("end");
+				
+			}
+			else
+			{
+
+				var place = eval('"'+ tut_itsybitsy_arr[tut_count]+'"');
+				$(place).append($('.note_one'));
+				$('.note_one').show();
+				console.log('pumasok');
+			}
+	}
+
+	function tutSleep()
+	{
+		console.log(tut_count);
+
+			if ( tut_count == 32) 
+			{
+				
+				
+				tut_count = 0;
+				tut_sleep_active = false;
+									console.log("end");
+				
+			}
+			else
+			{
+
+				var place = eval('"'+ tut_sleep_arr[tut_count]+'"');
+				$(place).append($('.note_one'));
+				$('.note_one').show();
+				console.log('pumasok');
+			}
+	}
+
+	function tutSheep()
+	{
+		console.log(tut_count);
+
+			if ( tut_count == 37) 
+			{
+				
+				
+				tut_count = 0;
+				tut_sheep_active = false;
+				console.log("end");
+				
+			}
+			else
+			{
+
+				var place = eval('"'+ tut_sheep_arr[tut_count]+'"');
+				$(place).append($('.note_one'));
+				$('.note_one').show();
+				console.log('pumasok');
+			}
+	}
+
+	function tutBridge()
+	{
+		console.log(tut_count);
+
+			if ( tut_count == 27) 
+			{
+				
+				
+				tut_count = 0;
+				tut_bridge_active = false;
+									console.log("end");
+				
+			}
+			else
+			{
+
+				var place = eval('"'+ tut_bridge_arr[tut_count]+'"');
+				$(place).append($('.note_one'));
+				$('.note_one').show();
+				console.log('pumasok');
+			}
+	}
+
+	function tutLamb()
+	{
+		console.log(tut_count);
+
+			if ( tut_count == 27) 
+			{
+				
+				
+				tut_count = 0;
+				tut_lamb_active = false;
+									console.log("end");
+				
+			}
+			else
+			{
+
+				var place = eval('"'+ tut_lamb_arr[tut_count]+'"');
+				$(place).append($('.note_one'));
+				$('.note_one').show();
+				console.log('pumasok');
+			}
+	}
+
+	function tutRain()
+	{
+		console.log(tut_count);
+
+			if ( tut_count == 26) 
+			{
+				
+				
+				tut_count = 0;
+				tut_rain_active = false;
+				console.log("end");
+				
+			}
+			else
+			{
+
+				var place = eval('"'+ tut_rain_arr[tut_count]+'"');
+				$(place).append($('.note_one'));
+				$('.note_one').show();
+				//console.log('pumasok');
+			}
+	}
+
+	function tutTwinkle()
+	{
+		console.log(tut_count);
+
+			if ( tut_count == 42) 
+			{
+				
+				
+				tut_count = 0;
+				tut_twinkle_active = false;
+				console.log("end");
+				
+			}
+			else
+			{
+
+				var place = eval('"'+ tut_twinkle_arr[tut_count]+'"');
+				$(place).append($('.note_one'));
+				$('.note_one').show();
+				console.log('pumasok');
+			}
+	}
+
+	function tutDeer()
+	{
+		console.log(tut_count);
+
+			if ( tut_count == 40) 
+			{
+				
+				
+				tut_count = 0;
+				tut_deer_active = false;
+				console.log("end");
+				
+			}
+			else
+			{
+
+				var place = eval('"'+ tut_deer_arr[tut_count]+'"');
+				$(place).append($('.note_one'));
+				$('.note_one').show();
+				console.log('pumasok');
+			}
+	}
+
+
+	function tutMcdonald()
+	{
+		console.log(tut_count);
+
+			if ( tut_count == 27) 
+			{
+				
+				
+				tut_count = 0;
+				tut_mcdonald_active = false;
+				console.log("end");
+				
+			}
+			else
+			{
+
+				var place = eval('"'+ tut_mcdonald_arr[tut_count]+'"');
+				$(place).append($('.note_one'));
+				$('.note_one').show();
+				//console.log('pumasok');
+			}
+	}
+
+
+
+function soundOnOff()
+	{
+		if (soundison == true)  
+		{
+			$('#sound-on-off').css('background-image' , 'url(shapes/soundoff.png)' );
+			soundison = false;
+			window.localStorage.setItem("bgmusic",'off');
+			menuMusic.pause();
+			menuMusic.currentTime = 0;
+		}
+		else
+		{
+			$('#sound-on-off').css('background-image' , 'url(shapes/soundon.png)' );
+			soundison = true;
+			window.localStorage.setItem("bgmusic",'on');
+			menuMusic.play();
+		}
+
+	}
+
+
+
+
+});
+
+
+</script>
+
+<!-- dito nakalagay yung save progress --><p id="gameProgress" hidden></p> <!-- -->
+
+<!-- ---------------- MENU -------------- -->
+
+<div data-role='page' id="menu">
+	
+	
+
+	<div data-role='main' class="ui-content" >
+		
+		<div id="sound-on-off">
+			
+		</div>
+
+	 <div data-role='controlgroup' data-type='horizontal' class="center" id="menu_buttons">	
+		<a  class="ui-btn btnclick" href="#category" id="play"></a></button>
+		<a id="menu_practice" class="ui-btn btnclick" href="#practice_page" ></a>
+		<a id="menu_tut" class="ui-btn btnclick" href="#tut_overlay"  ></a>
+		<a id="menu_exit" class="ui-btn btnclick" href="#" onclick="exitAppPopup();"></a>		
+	 </div>
+	</div>
+
+	
+
+</div>
+
+<!-- ---------------- END MENU -------------- -->
+
+
+
+
+
+<!-- ------------ TUTORIAL PAGE --------- -->
+
+
+
+	 <!-- tut overlay -->
+
+	 	<div data-role="page" id="tut_overlay" class="tut_overlay" >
+	 		<div data-role='header' class="trans noborder">
+		<!-- <a href="#menu" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder reloadPage btnclick tutreload" >Back</a> -->
+		<h1>Tutorial</h1>
+	</div>
+
+	 		
+	 		<div data-role="main" class="ui-content">
+	 			<div data-role="controlgroup" data-type="horizontal" class="tut_buttons"  style="text-align: center; " >
+					<a href="#" class="ui-btn ui-btn-inline shapeStyle zindex-5000" id="tut_row_lvl_1_s1"  ></a>
+					<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="tut_row_lvl_1_s2"  ></a>
+					<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="tut_row_lvl_1_s3"  ></a>
+				</div>
+	 		
+
+				<div data-role="controlgroup" data-type="horizontal" class="tut_playcheck" style="text-align: center;" >
+					<a id="tut_row_lvl_1_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+					<a href='#' id="tut_row_lvl_1_check" class="ui-btn rounded locked" style="margin: 10px 10px !important;" > Check</a>
+				</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" class="tut_answers" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="tut_row_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="tut_row_ans2" style="border: none;" ></a>
+			</div>
+
+
+
+	 		</div>
+	 		
+
+	 	</div>
+	 <!-- tut overlay end -->
+
+	 <div id="tut_finished" hidden >
+	 	<br/>
+	 	<p class="tut_finished_mes">Congratulations!</p>
+	 	<p class="tut_finished_mes">you are now ready!</p>
+
+	 	<button class="tut_finished_btn ui-btn rounded">Proceed</button>
+
+	 </div>
+
+
+
+	 <div class="grayscreen" hidden>
+	 	<a href="#" class="ui-btn ui-btn-inline ui-btn-corner-all ui-icon-delete ui-btn-icon-notext skip-tut">SKIP</a>
+	 		<div class="current-step">
+		<p class="current-step-mes"></p>
+	</div>
+	 </div>
+
+	 
+
+	<!-- <div class="pointing-hand"></div> 
+	
+-->
+
+
+
+<!--
+	<div data-role='page' id="tut_page">
+			<div data-role="header">
+				<a href="#menu" class="ui-btn ui-icon-arrow-l ui-btn-icon-left reloadPage" onclick="reload();">Back</a>
+				<h1>Tutorial</h1>
+			</div>
+
+
+			<div data-role='main' class="ui-content" >
+			<p>Hello Welcome to Shape of Music</p>	 
+			
+			<h3>This are the set of shapes </h3>
+
+			<img src="tutorial_pics/1.PNG" width="100%" />
+
+			<p>The shapes represents Do-re-mi. You can play any nursery rhymes using these shapes</p>
+
+			<div data-role="collapsible">
+				<h3>Show Shapes and Sounds</h3>
+				
+				<table data-role="table" class="ui-responsive ui-shadow" style="text-align: center !important;" >
+				<thead>	
+					<tr>
+						<td>Shapes</td>
+						<td>Sounds</td>
+					</tr>
+				</thead>
+	
+	
+	
+	
+	
+	
+	
+	
+				<tbody>	
+					<tr>
+						<td onclick="soundLdo.play();"><img src="shapes/circle.png" width="35%" height="130px"></td>
+						<td> <p> <span class="bold"> DO (low) </span> <br/> Tap the circle to hear the DO(low) Sound</p></td>
+					</tr>
+
+					<tr>
+						<td onclick="soundRe.play();"><img src="shapes/diamond.png" width="35%" height="130px"></td>
+						<td><p> <span class="bold"> RE </span> <br/> Tap the diamond to hear the RE Sound</p></td>
+					</tr>
+
+					<tr>
+						<td onclick="soundMi.play();"><img src="shapes/square.png" width="35%" height="130px"></td>
+						<td><p> <span class="bold"> MI </span> <br/> Tap the square to hear the MI Sound</p></td>
+					</tr>
+
+					<tr>
+						<td onclick="soundFa.play();"><img src="shapes/heart.png" width="35%" height="130px"></td>
+						<td><p> <span class="bold"> FA </span> <br/> Tap the heart to hear the FA Sound</p></td>
+					</tr>
+
+					<tr>
+						<td onclick="soundSol.play();"><img src="shapes/oblong.png" width="35%" height="130px"></td>
+						<td><p> <span class="bold"> SOL </span> <br/> Tap the Oblong to hear the SOL Sound</p></td>
+					</tr>
+
+					<tr>
+						<td onclick="soundLa.play();"><img src="shapes/rectangle.png" width="35%" height="130px"></td>
+						<td><p> <span class="bold"> LA </span> <br/> Tap the Recatangle to hear the LA Sound</p></td>
+					</tr>
+
+					<tr>
+						<td onclick="soundSi.play();"><img src="shapes/star.png" width="35%" height="130px"></td>
+						<td><p> <span class="bold"> SI </span> <br/> Tap the Star to hear the SI Sound</p></td>
+					</tr>
+
+					<tr>
+						<td onclick="soundHdo.play();"><img src="shapes/triangle.png" width="35%" height="130px"></td>
+						<td><p> <span class="bold"> DO (high) </span> <br/> Tap the Triangle to hear the DO (high) Sound</p></td>
+					</tr>
+				</tbody>
+				</table>
+			</div>
+
+			<h2>There are two modes in Shape of Music</h2>
+			<h3>1. Main Game Mode</h3>
+			<p>When you press start at the main menu you will see 10 categories. Each Category has 10 levels or more defending on the length of the nursery rhyme. Press The level to start Playing it. You will See Shapes and you can tap each shape to familiarize the sound. Once you are ready Press the Play Button. Wait For the buttons to demonstrate its sound and then you will hear a question "What is the shape of this sound?" You have to recognize sound after the question and then press what shape can produce that sound. After choosing the shape press the check button to verify your answer. </p>
+
+			<h3>2. Practice Mode</h3>
+			<p>In Practice Mode you can try </p>
+
+		</div>	
+
+</div>
+
+<!-- ------------ END TUTORIAL PAGE -->
+
+
+<!-------  END PAGE ----- -->
+
+<div data-role='page' id="end_page">
+	
+	<div data-role='header' class="trans noborder">
+		
+	</div>
+
+	<div data-role='main' class="ui-content" >
+
+		
+				<p class="youfinish"> You Finish Row row row </p>
+				<div id="numofstars">
+					
+					<div id="onestar" hidden>
+					<img src="shapes/endstar.png" width="50" height="50" />
+					</div>
+
+					<div id="twostar" hidden>
+					<img src="shapes/endstar.png" width="50" height="50" />
+					<img src="shapes/endstar.png" width="50" height="50" />
+					</div>
+
+					<div id="threestar" hidden>
+					<img src="shapes/endstar.png" width="50" height="50" />
+					<img src="shapes/endstar.png" width="50" height="50" />
+					<img src="shapes/endstar.png" width="50" height="50" />
+					</div>
+
+					<div id="fourstar" hidden>
+					<img src="shapes/endstar.png" width="50" height="50" />
+					<img src="shapes/endstar.png" width="50" height="50" />
+					<img src="shapes/endstar.png" width="50" height="50" />
+					<img src="shapes/endstar.png" width="50" height="50" />
+					</div>
+
+					<div id="fivestar" hidden >
+					<img src="shapes/endstar.png" width="50" height="50" />
+					<img src="shapes/endstar.png" width="50" height="50" />
+					<img src="shapes/endstar.png" width="50" height="50" />
+					<img src="shapes/endstar.png" width="50" height="50" />
+					<img src="shapes/endstar.png" width="50" height="50" />
+					</div>
+
+				</div>
+
+				<p id="num-of-retry"><span id="num-of-retry-span"></span> Tries </p>
+				<p id="category-unlock"> You unlocked a new category </p>
+
+				<a href="#category" id="end_page_proceed"  onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px  greenbg">PROCEED</a>
+	</div>
+
+
+</div>
+<!-- ------   END PAGE END -- -->
+
+
+
+
+<!-- ----------------- PRACTICE -------------- -->
+
+<div data-role='page' id="practice_page">
+
+	<div data-role="panel" id="mypanel" data-position="right" data-display="overlay">
+	    
+	    <div data-role="controlgroup" data-type="vertical" >
+					<button class="panelbtn1 btnclick" id="tut_row_init" >Row row row</button>
+					<button class="panelbtn2 btnclick" id="tut_spider_init">Itsy Bitsy Spider</button>
+					<button class="panelbtn3 btnclick" id="tut_sleeping_init">Are you sleeping</button>
+					<button class="panelbtn4 btnclick" id="tut_sheep_init">Baa baa Black Sheep</button>
+					<button class="panelbtn5 btnclick" id="tut_bridge_init">London Bridge</button>
+					<button class="panelbtn6 btnclick" id="tut_lamb_init">Mary had a little Lamb</button>
+					<button class="panelbtn7 btnclick" id="tut_rain_init">Rain Rain go away</button>
+					<button class="panelbtn8 btnclick" id="tut_twinkle_init">Twinkle twinkle little star</button>
+					<button class="panelbtn9 btnclick" id="tut_deer_init">Doe a deer</button>
+					<button class="panelbtn10 btnclick" id="tut_mcdonald_init">Old Mcdonald</button>
+		</div>
+	</div><!-- /panel -->
+
+	
+	<div data-role='header' class="trans noborder">
+		<a href="#menu" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder reloadPage btnclick" >Back</a>
+		 <a href="#mypanel" class="ui-btn ui-icon-arrow-r ui-btn-icon-right trans noborder btnclick" >Songs</a>
+		<h1>Practice Mode</h1>
+	</div>
+
+	<div data-role='main' class="ui-content" >
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;">
+				<a href="#" class="ui-btn ui-btn-inline instrument" id="p_piano_btn" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline instrument" id="p_guitar_btn"  style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline instrument" id="p_sax_btn"  style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline instrument" id="p_violin_btn"  style="border: none;" ></a>
+			</div>
+
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center; margin-top: 0;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="p_Ldo" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="p_re"  style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="p_mi"  style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="p_fa"  style="border: none;" ></a>
+
+			</div>
+			<p style="text-align: center;word-spacing: 100px;"> DO RE MI FA</p>
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center; margin-top: 30px !important; " >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="p_sol" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="p_la"  style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="p_si"  style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="p_Hdo" style="border: none;" ></a>
+			</div>
+			<p style="text-align: center;word-spacing: 100px;">SOL LA SI DO</p>
+
+	</div>
+
+
+</div>
+
+
+		
+
+
+
+<!-- ----------------- END PRACTICE -------------- -->
+
+
+<!-- -------- CATEGORY ----- -->
+
+		<div data-role="page" id="category" style="background: url(cat_wallp.jpg) no-repeat fixed center/cover;">
+			
+			<div data-role="header" class="noborder" style="background-color: rgb(226,124,22) !important;">
+				<a href="#menu" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder reloadPage btnclick"  style="margin: 7px !important;">Back</a>
+				<h1  style="font-size: 20px;color: white; "></h1>
+				<div class="cat_head"></div>
+			</div>
+			
+			<div data-role="main" class="ui-content">
+
+			<div style="text-align: center !important;" >
+				<div data-role="controlgroup" data-type="horizontal">
+					<a id="category1" class="ui-btn categorybtn btnclick" style="margin: 10px 15px !important;" href="#row1to10"></a>
+					<a id="category2" class="ui-btn categorybtn btnclick disabled"  style="margin: 10px 15px !important;" rel="external" href="Itsy Bitsy/index.html#row1to10"></a>
+				</div>
+				
+				<div data-role="controlgroup" data-type="horizontal">	
+					<a id="category3" class="ui-btn categorybtn btnclick disabled" style="margin: 10px 15px !important;" rel="external" href="sleeping/index.html#row1to10"></a>
+					<a id="category4" class="ui-btn categorybtn btnclick disabled" style="margin: 10px 15px !important;" rel="external" href="blacksheep/index.html#row1to10"></a>
+				</div>
+
+				<div data-role="controlgroup" data-type="horizontal">
+
+					<a id="category5" class="ui-btn categorybtn btnclick disabled" style="margin: 10px 15px !important;" rel="external" href="bridge/index.html#row1to10"></a>
+					<a id="category6" class="ui-btn categorybtn btnclick disabled" style="margin: 10px 15px !important;" rel="external" href="lamb/index.html#row1to10"></a>
+				</div>
+
+				<div data-role="controlgroup" data-type="horizontal">
+					<a id="category7" class="ui-btn categorybtn btnclick disabled" style="margin: 10px 15px !important;" rel="external" href="rain/index.html#row1to10"></a>
+					<a id="category8" class="ui-btn categorybtn btnclick disabled" style="margin: 10px 15px !important;" rel="external" href="twinkle/index.html#row1to10"></a>
+				</div>
+
+				<div data-role="controlgroup" data-type="horizontal">
+					<a id="category9" class="ui-btn categorybtn btnclick disabled" style="margin: 10px 15px !important;" rel="external" href="deer/index.html#row1to10"></a>
+					<a id="category10" class="ui-btn categorybtn btnclick disabled" style="margin: 10px 15px !important;" rel="external" href="mcdonald/index.html#row1to10"></a>
+				</div>
+			 </div>
+			
+		   </div>	
+
+		</div>
+
+<!-- -------- END CATEGORY ----- -->
+
+
+<!--  -------- ROW ROW ROW ---- -->
+
+<div data-role="page" id="row1to10" style="background: url('levelsbg.jpg') no-repeat fixed center/cover;">
+	<div data-role="header" style="background: none !important;border: none;">
+		<a href="#category" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder btnclick" style="margin: 7px !important;" >Back</a>
+		<h1>Row Row Row</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+
+<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+	<a class="ui-btn levels level1 " href="#tut_overlay" onclick="tutInit();" ></a>
+	<a class="ui-btn levels level2 level-lock" href="#row_lvl_2_" id="cat_row_lvl_2"></a>
+	<a class="ui-btn levels level3 level-lock" href="#row_lvl_3_" id="cat_row_lvl_3"></a>
+	<a class="ui-btn levels level4 level-lock" href="#row_lvl_4_" id="cat_row_lvl_4"></a>
+	<a class="ui-btn levels level5 level-lock" href="#row_lvl_5_" id="cat_row_lvl_5"></a>
+</div>
+
+
+
+<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+	<a class="ui-btn levels level6 level-lock" href="#row_lvl_6_" id="cat_row_lvl_6"></a>
+	<a class="ui-btn levels level7 level-lock" href="#row_lvl_7_" id="cat_row_lvl_7"></a>
+	<a class="ui-btn levels level8 level-lock" href="#row_lvl_8_" id="cat_row_lvl_8"></a>
+	<a class="ui-btn levels level9 level-lock" href="#row_lvl_9_" id="cat_row_lvl_9"></a>
+	<a class="ui-btn levels level10 level-lock" href="#row_lvl_10_" id="cat_row_lvl_10"></a>
+</div>	 
+	 </div>
+	
+
+</div>
+
+<!--ROW LEVEL 1 -->
+	<div data-role="page" id="row_lvl_1_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1 >Sound 1</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center; " >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_1_s1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_1_s2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_1_s3" style="border: none;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_1_1">1</td>
+						<td id="row_lvl_1_2">2</td>
+
+					</tr>
+				</table>
+
+		
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center; " >
+			<a id="row_lvl_1_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_1_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_1_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_1_ans2" style="border: none;" ></a>
+			</div>
+
+		
+
+	
+    </div>
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true"  id="row_lvl_1_nextlvl" class="yehey"  >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_1_w1 "  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_1_w2 "  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 2</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_1_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_1_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_1_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_1_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="#menu" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+
+<!-- END ROW LEVEL 1 -->
+
+
+<!-- ROW LEVEL 2 -->
+	<div data-role="page" id="row_lvl_2_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 2</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_2_s1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_2_s2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_2_s3" style="border: none;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_2_1">1</td>
+						<td id="row_lvl_2_2">2</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center; " >
+			<a id="row_lvl_2_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_2_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>				
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_2_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_2_ans2" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true"  id="row_lvl_2_nextlvl" class="yehey"  >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_2_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_2_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 3</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_2_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_2_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_2_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_2_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="#menu" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 2 -- >	
+
+
+
+<!-- ROW LEVEL 3 -->
+	<div data-role="page" id="row_lvl_3_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 3</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_3_s1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_3_s2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_3_s3" style="border: none;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_3_1">1</td>
+						<td id="row_lvl_3_2">2</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_3_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_3_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_3_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_3_ans2" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_3_nextlvl"  class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_3_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_3_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 4</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_3_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_3_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_3_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_3_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="#menu" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 3 -->
+
+
+<!-- ROW LEVEL 4 -->
+	<div data-role="page" id="row_lvl_4_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 4</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_4_s1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_4_s2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_4_s3" style="border: none;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_4_1">1</td>
+						<td id="row_lvl_4_2">2</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_4_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_4_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_4_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_4_ans2" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_4_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_4_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_4_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 5</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_4_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_4_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_4_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_4_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="#menu" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 4 -->
+
+<!-- ROW LEVEL 5 -->
+	<div data-role="page" id="row_lvl_5_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 5</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_5_s1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_5_s2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_5_s3" style="border: none;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_5_1">1</td>
+						<td id="row_lvl_5_2">2</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_5_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_5_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_5_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_5_ans2" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_5_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_5_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_5_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 6</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_5_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_5_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_5_w2"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_5_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="#menu" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 5 -->
+
+
+
+<!-- ROW LEVEL 6 -->
+	<div data-role="page" id="row_lvl_6_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 6</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_6_s1" style="border: none; margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_6_s2" style="border: none; margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_6_s3" style="border: none; margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_6_s4" style="border: none; margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_6_s5" style="border: none; margin: 0 20px !important;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_6_1">1</td>
+						<td id="row_lvl_6_2">2</td>
+						<td id="row_lvl_6_3">3</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_6_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_6_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_6_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_6_ans2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_6_ans3" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_6_nextlvl" class="yehey"  >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_6_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_6_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_6_w3"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 7</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_6_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_6_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_6_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_6_w3"  style="border: none;" ></a>
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_6_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="#menu" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 6 -->
+
+
+
+<!-- ROW LEVEL 7 -->
+	<div data-role="page" id="row_lvl_7_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 7</h1>
+	</div>
+
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_7_s1" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_7_s2" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_7_s3" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_7_s4" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_7_s5" style="border: none;margin: 0 20px !important;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_7_1">1</td>
+						<td id="row_lvl_7_2">2</td>
+						<td id="row_lvl_7_3">3</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_7_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_7_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_7_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_7_ans2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_7_ans3" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_7_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_7_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_7_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_7_w3"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 8</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_7_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_7_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_7_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_7_w3"  style="border: none;" ></a>
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_7_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="#menu" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div><!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 7 -->
+
+
+
+<!-- ROW LEVEL 8 -->
+	<div data-role="page" id="row_lvl_8_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 8</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_8_s1" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_8_s2" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_8_s3" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_8_s4" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_8_s5" style="border: none;margin: 0 20px !important;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_8_1">1</td>
+						<td id="row_lvl_8_2">2</td>
+						<td id="row_lvl_8_3">3</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_8_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_8_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_8_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_8_ans2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_8_ans3" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_8_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_8_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_8_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_8_w3"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You unlocked Level 9</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_8_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_8_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_8_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_8_w3"  style="border: none;" ></a>
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_8_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="#menu" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 8 -->
+
+<!-- ROW LEVEL 9 -->
+	<div data-role="page" id="row_lvl_9_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 9</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_9_s1" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_9_s2" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_9_s3" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_9_s4" style="border: none;margin: 0 20px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_9_s5" style="border: none;margin: 0 20px !important;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_9_1">1</td>
+						<td id="row_lvl_9_2">2</td>
+						<td id="row_lvl_9_3">3</td>
+
+					</tr>
+				</table>
+
+		
+
+		<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_9_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_9_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_9_ans1" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_9_ans2" style="border: none;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_9_ans3" style="border: none;" ></a>
+			</div>
+	
+    </div>
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_9_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_9_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_9_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_9_w3"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> You Unlocked Level 10</p>
+    
+    <a href="#row1to10" onclick="location.reload(true);" class="ui-btn ui-btn-inline brad20px pinkbg">PROCEED</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_9_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_9_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_9_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle disabled row_lvl_9_w3"  style="border: none;" ></a>
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_9_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="#menu" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 9 -->
+
+
+<!-- ROW LEVEL 10 -->
+	<div data-role="page" id="row_lvl_10_">
+	
+	<div data-role="header" class="trans noborder">
+		<a href="#row1to10" class="ui-btn ui-icon-arrow-l ui-btn-icon-left trans noborder" style="margin: 7px !important;" onclick="reload()";></a>
+		<h1>Sound 10</h1>
+	</div>
+	
+	<div data-role="main" class="ui-content">
+		
+
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s1" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s2" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s3" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s4" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+			</div>
+			
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s5" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s6" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s7" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle" id="row_lvl_10_s8" style="border: none; margin: 0 30px !important;height: 25px !important;" ></a>
+			</div>
+
+
+				<table hidden>
+					<tr>
+						<td id="row_lvl_10_1">1</td>
+						<td id="row_lvl_10_2">2</td>
+						<td id="row_lvl_10_3">3</td>
+						<td id="row_lvl_10_4">4</td>
+						<td id="row_lvl_10_5">5</td>
+
+					</tr>
+				</table>
+
+		
+
+	<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+			<a id="row_lvl_10_animate" class="ui-btn rounded" style="margin: 10px 20px !important; "> Play</a>
+			<a href='#' id="row_lvl_10_check" class="ui-btn rounded locked" style="margin: 10px 20px !important; " > Check</a>
+		</div>		
+
+			<div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_10_ans1" style="border: none;margin: 0 10px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_10_ans2" style="border: none;margin: 0 10px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_10_ans3" style="border: none;margin: 0 10px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_10_ans4" style="border: none;margin: 0 10px !important;" ></a>
+				<a href="#" class="ui-btn ui-btn-inline shapeStyle q_img disabled" id="row_lvl_10_ans5" style="border: none;margin: 0 10px !important;" ></a>
+			</div>
+	
+    </div>
+
+
+
+</div>
+
+<!-- --IF CORRECT-- -->
+<div data-role="page" data-dialog="true" id="row_lvl_10_nextlvl" class="yehey" >
+  <div data-role="main" class="ui-content yellowbg" style="text-align: center !important;" >
+    <p>Correct The answer is </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w3"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w4"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w5"  style="border: none;" ></a>
+       		
+       </div>
+       <br/>
+
+    <p> Congratulations You Finished This Category</p>
+    
+    <a href="#end_page" id="end_page_trigger" data-transition="pop" class="ui-btn ui-btn-inline brad20px pinkbg">SUMMARY</a>
+  
+  </div>
+</div>
+<!-- -- IF CORRECT END-- -->
+
+<!-- -- IF WRONG  -- -->
+	<div data-role="page" data-dialog="true" id="row_lvl_10_wrong"  >
+  <div data-role="main" class="ui-content redbg" >
+    <p class="center youranswer">Your Answer </p>
+       <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w1"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w2"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w3"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w4"  style="border: none;" ></a>
+       		<a href="#" class="ui-btn ui-btn-inline shapeStyle8shapes disabled row_lvl_10_w5"  style="border: none;" ></a>
+       </div>
+       <br/>
+    <p class="center iswrong"> is wrong</p>
+    <div data-role="controlgroup" data-type="horizontal" style="text-align: center;" >
+     	<a href="#" class="ui-btn ui-btn-inline brad20px pinkbg" id="row_lvl_10_retry" style="margin: 0px 25px !important;" >Retry</a>
+     	<a href="#menu" class="ui-btn ui-btn-inline brad20px pinkbg" style="margin: 0px 25px !important;">Main Menu</a>
+  	</div>
+  </div>
+</div>
+<!-- --IF WRONG END-- -->
+ <!-- END ROW LEVEL 10 -->
+
+
+<!--  --------  END ROW ROW ROW ---- -->
+
+
+
+<div class="note_one" hidden>
+	<img src="shapes/note1.png" width="40" height="40">
+</div>
+
+
+</body>
+</html>

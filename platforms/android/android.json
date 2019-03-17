@@ -1,0 +1,127 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"ExitApp\"><param name=\"android-package\" value=\"kr.co.joycorp.cordova.exitapp.ExitApp\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "res/xml/config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"CDVOrientation\"><param name=\"android-package\" value=\"cordova.plugins.screenorientation.CDVOrientation\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "kr.co.joycorp.cordova.exitapp": {
+            "PACKAGE_NAME": "com.Robles.project"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.Robles.project"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.Robles.project"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.Robles.project"
+        },
+        "es6-promise-plugin": {
+            "PACKAGE_NAME": "com.Robles.project"
+        },
+        "cordova-plugin-screen-orientation": {
+            "PACKAGE_NAME": "com.Robles.project"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [
+        {
+            "id": "kr.co.joycorp.cordova.exitapp.exitApp",
+            "file": "plugins/kr.co.joycorp.cordova.exitapp/www/ExitApp.js",
+            "pluginId": "kr.co.joycorp.cordova.exitapp",
+            "merges": [
+                "navigator.app"
+            ]
+        },
+        {
+            "id": "cordova-plugin-device.device",
+            "file": "plugins/cordova-plugin-device/www/device.js",
+            "pluginId": "cordova-plugin-device",
+            "clobbers": [
+                "device"
+            ]
+        },
+        {
+            "id": "cordova-plugin-splashscreen.SplashScreen",
+            "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+            "pluginId": "cordova-plugin-splashscreen",
+            "clobbers": [
+                "navigator.splashscreen"
+            ]
+        },
+        {
+            "id": "cordova-plugin-dialogs.notification",
+            "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+            "pluginId": "cordova-plugin-dialogs",
+            "merges": [
+                "navigator.notification"
+            ]
+        },
+        {
+            "id": "cordova-plugin-dialogs.notification_android",
+            "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
+            "pluginId": "cordova-plugin-dialogs",
+            "merges": [
+                "navigator.notification"
+            ]
+        },
+        {
+            "id": "es6-promise-plugin.Promise",
+            "file": "plugins/es6-promise-plugin/www/promise.js",
+            "pluginId": "es6-promise-plugin",
+            "runs": true
+        },
+        {
+            "id": "cordova-plugin-screen-orientation.screenorientation",
+            "file": "plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
+            "pluginId": "cordova-plugin-screen-orientation",
+            "clobbers": [
+                "cordova.plugins.screenorientation"
+            ]
+        }
+    ],
+    "plugin_metadata": {
+        "kr.co.joycorp.cordova.exitapp": "1.0.2",
+        "cordova-plugin-device": "2.0.2",
+        "cordova-plugin-splashscreen": "5.0.2",
+        "cordova-plugin-dialogs": "2.0.1",
+        "es6-promise-plugin": "4.2.2",
+        "cordova-plugin-screen-orientation": "3.0.1"
+    }
+}

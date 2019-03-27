@@ -10,5 +10,6 @@ You can also run it in browser
 
 clone this repo 
 
-$npm install
+$npm install 
+
 $cordova run browser
